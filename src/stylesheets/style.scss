@@ -1,0 +1,29 @@
+@import '~normalize.css/normalize.css';
+@import './base';
+@import './media';
+@import './fonts';
+
+html {
+  height: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+a {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px;
+  }
+}
