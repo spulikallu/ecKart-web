@@ -1,0 +1,28 @@
+{
+  "name": "eckart-web",
+  "version": "1.0.0",
+  "description": "easyKart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spulikallu/ecKart-web.git"
+  },
+  "keywords": [
+    "shop",
+    "es6",
+    "webpack",
+    "add-to-cart",
+    "e-commerce",
+    "ecart",
+    "ecKart"
+  ],
+  "author": "sandeep pulikallu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spulikallu/ecKart-web/issues"
+  },
+  "homepage": "https://github.com/spulikallu/ecKart-web#readme"
+}
