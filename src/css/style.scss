@@ -1,29 +1,11 @@
 @import '~normalize.css/normalize.css';
-@import './base';
-@import './media';
-@import './fonts';
+@import './core/variables';
+@import './core/media';
+@import './core/fonts';
+@import './core/base';
 
-html {
-  height: 100%;
-}
-
-body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
-}
-
-a {
-  position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-
-  img {
-    display: inline-block;
-    vertical-align: middle;
-    width: 80px;
-  }
-}
+@import './components/main';
+@import './components/header';
+@import './components/productsControl';
+@import './components/products';
+@import './components/footer';

@@ -1,0 +1,55 @@
+.header {
+  &__container {
+    background-color: $color-primary;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__logo {
+    flex-grow: 10;
+
+    .fa-star {
+      cursor: pointer;
+      font-size: 30px;
+      padding: 10px;
+      color: $color-brand;
+    }
+  }
+
+  &__search {
+    flex-grow: 1;
+    .fa-search {
+      cursor: pointer;
+      font-size: 20px;
+      color: $color-white;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    flex-grow: 1;
+
+    .fa-shopping-cart {
+      cursor: pointer;
+      font-size: 20px;
+      color: $color-white;
+      right: 0;
+      &:after {
+        content: attr(data-badge);
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-family: $font-dark;
+        position: absolute;
+        padding-left: 6px;
+        padding-top: 3px;
+        top: -5px;
+        left: 15px;
+        background-color: $color-alert;
+      }
+    }
+  }
+}
