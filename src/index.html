@@ -1,17 +1,51 @@
+<!--TODO-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>ecKart</title>
-    <meta name="description" content="easyKart webapp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="favicon.ico" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <body>
-    <a href="/" class="logo">
-      <img src="images/logo.png" alt="Logo" />
-    </a>
-    <h1>Logo</h1>
-  </body>
+    <link rel="stylesheet" media="all" href="https://rawgit.com/hankchizljaw/boilerform/master/dist/css/boilerform.min.css?v=1.1.1" />
+    <title>ecKart</title>
+</head>
+<body>
+    <main>
+        <header class="intro">
+            <h1 class="intro__heading">Done list</h1>
+            <p class="intro__summary">A list of things that you have achieved today.</p>
+            <p class="intro__summary"><b>Note:</b> The data isn't stored, so it will disappear if you reload!</p>
+        </header>
+     
+        <section class="app">
+            <section class="app__input">
+                <h2 class="app__heading">What you've done</h2>
+                <div class="js-items" aria-live="polite" aria-label="A list of items you have done"></div>
+
+                <!--TODO-->
+                <div class="js-shopping-list" aria-live="polite" aria-label="shopping list items">
+
+                </div>
+
+                <form class="new-item boilerform  js-form ">
+                    <div class="boilerform">
+                        <!-- Form styles from the https://boilerform.design boilerplate -->
+                        <label for="new-item-field" class="[ new-item__label ] [ c-label ]">Add a new item</label>
+                        <input type="text" class="[ new-item__details ] [ c-input-field ]" id="new-item-field" autocomplete="off" />
+                        <button class="[ c-button ] [ new-item__button ]">Save</button>
+                    </div>
+                </form>
+            </section>
+            <aside class="app__status">
+                <p role="status" class="visually-hidden">You have done <span class="js-status">1 thing</span> today!</p>
+                <div class="[ app__decor ] [ js-count ]" aria-hidden="true">
+                    <small>You've done</small>
+                    <span>0</span>
+                    <small>things today 😢</small>
+                </div>
+            </aside>
+        </section>
+    </main>
+   
+</body>
 </html>
