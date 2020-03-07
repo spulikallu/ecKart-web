@@ -5,10 +5,10 @@ const paths = require('./paths');
 module.exports = {
   context: paths.src,
   entry: {
-    app: `./scripts/index.js`,
+    app: `./js/main.js`,
   },
   output: {
-    filename: `scripts/[name].[hash:8].js`,
+    filename: `js/[name].[hash:8].js`,
     path: paths.build,
   },
   module: {
@@ -74,7 +74,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'stylesheets/[name].[hash:8].css',
+      filename: 'css/[name].[hash:8].css',
     }),
     new CopyWebpackPlugin([{ from: paths.static }]),
   ],
