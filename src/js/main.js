@@ -5,7 +5,9 @@ import store from './store/index.js';
 
 // Load up components
 import Count from './components/cart.js';
-import List from './components/shoppingList.js';
+
+import ShoppingList from './components/shoppingList.js';
+
 import Status from './components/header.js';
 
 // Load up some DOM elements
@@ -29,10 +31,12 @@ formElement.addEventListener('submit', evt => {
 
 // Instantiate components
 const countInstance = new Count();
-const listInstance = new List();
+//const listInstance = new List();
 const statusInstance = new Status();
+const shoppingListInstance = new ShoppingList();
 
 // Initial renders
 countInstance.render();
-listInstance.render();
+//listInstance.render();
 statusInstance.render();
+shoppingListInstance.render();
