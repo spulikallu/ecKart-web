@@ -1,29 +1,3 @@
-// https://getbootstrap.com/docs/4.0/layout/overview/
-// https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_breakpoints.scss
-
-// Example usage:
-
-// @include media-breakpoint-down(xs) { ... }
-// @include media-breakpoint-down(sm) { ... }
-// @include media-breakpoint-down(md) { ... }
-// @include media-breakpoint-down(lg) { ... }
-
-// or "Mobile first"
-
-// @include media-breakpoint-up(xs) { ... }
-// @include media-breakpoint-up(sm) { ... }
-// @include media-breakpoint-up(md) { ... }
-// @include media-breakpoint-up(lg) { ... }
-// @include media-breakpoint-up(xl) { ... }
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-);
-
 @function breakpoint-next(
   $name,
   $breakpoints: $grid-breakpoints,

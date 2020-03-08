@@ -1,6 +1,6 @@
 //TODO:
 
-import '../css/global.css';
+import '../css/style.scss';
 import store from './store/index.js';
 
 // Load up components

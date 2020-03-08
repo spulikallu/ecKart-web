@@ -1,0 +1,37 @@
+/*----------------------------------------------------------------------------------
+  Base Colors
+----------------------------------------------------------------------------------*/
+
+$color-primary: #4269ea;
+$color-secondary: #f7ad23;
+$color-brand: #f7ce23;
+$color-link: #456bea;
+$color-info: #55ba57;
+$color-alert: #e82b2b;
+$color-dark: #202020;
+$color-light: #565657;
+$color-white: #ffffff;
+$color-blacke: #000000;
+$color-overlay: rgba(0, 0, 0, 0.5);
+$color-overlay-boxshadow: rgba(0, 0, 0, 0.26);
+$color-border: #eaebed;
+$color-background: #f1f3f6;
+
+/*----------------------------------------------------------------------------------
+  Breakpoints
+----------------------------------------------------------------------------------*/
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+/*----------------------------------------------------------------------------------
+    Font Family
+----------------------------------------------------------------------------------*/
+$font-dark: 'Roboto-Bold', sans-serif;
+$font-medium: 'Roboto-Medium', sans-serif;
+$font-light: 'Roboto-Light', sans-serif;
