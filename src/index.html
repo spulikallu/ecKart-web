@@ -1,51 +1,160 @@
 <!--TODO-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" media="all" href="https://rawgit.com/hankchizljaw/boilerform/master/dist/css/boilerform.min.css?v=1.1.1" />
+    <link rel="stylesheet" media="all"
+        href="https://rawgit.com/hankchizljaw/boilerform/master/dist/css/boilerform.min.css?v=1.1.1" />
     <title>ecKart</title>
+    <script src="https://kit.fontawesome.com/f30fc76ca7.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <main>
-        <header class="intro">
-            <h1 class="intro__heading">Done list</h1>
-            <p class="intro__summary">A list of things that you have achieved today.</p>
-            <p class="intro__summary"><b>Note:</b> The data isn't stored, so it will disappear if you reload!</p>
+    <main class="app-container">
+        <header class="header js-header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="header__search">
+                    <input type="text" placeholder="Search"></input>
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header__cart">
+                    <i class="fas fa-shopping-cart" data-badge="5"></i>
+                </div>
+            </div>
         </header>
-     
-        <section class="app">
-            <section class="app__input">
-                <h2 class="app__heading">What you've done</h2>
-                <div class="js-items" aria-live="polite" aria-label="A list of items you have done"></div>
-
-                <!--TODO-->
-                <div class="js-shopping-list" aria-live="polite" aria-label="shopping list items">
-
-                </div>
-
-                <form class="new-item boilerform  js-form ">
-                    <div class="boilerform">
-                        <!-- Form styles from the https://boilerform.design boilerplate -->
-                        <label for="new-item-field" class="[ new-item__label ] [ c-label ]">Add a new item</label>
-                        <input type="text" class="[ new-item__details ] [ c-input-field ]" id="new-item-field" autocomplete="off" />
-                        <button class="[ c-button ] [ new-item__button ]">Save</button>
-                    </div>
-                </form>
-            </section>
-            <aside class="app__status">
-                <p role="status" class="visually-hidden">You have done <span class="js-status">1 thing</span> today!</p>
-                <div class="[ app__decor ] [ js-count ]" aria-hidden="true">
-                    <small>You've done</small>
-                    <span>0</span>
-                    <small>things today 😢</small>
-                </div>
-            </aside>
+        <section class="products-control">
+            <div class="products-control__sort">
+                <a href=""><i class="fas fa-sort"><span>Sort</span></Sort></i></a>
+            </div>
+            <div class="products-control__filter">
+                <a href=""><i class="fas fa-filter"><span>Filter</span></i></a>
+            </div>
         </section>
+        <section class="products">
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="products__item">
+                <img src="images/logo.png">
+                <h2>Item1</h2>
+                <div class="products__cost">
+                    <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                    <span class="products__actual-price">900</span>
+                    <span class="products__discount">64% off</span>
+                </div>
+                <div class="products__add">
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        <section class="modal-container">
+            <button id="myBtn">Open Modal</button>
+            <div class="modal">
+
+                <div class="modal-content">
+                    <div class="filter-modal">
+                        <h2>Filter Options</h2>
+                        <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+
+                        </div>
+                        <div class="filter-modal__range">
+
+
+                            <div id="slider-non-linear-step" class="filter-modal__step">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="modal-footer__action">
+                            <div class="modal-footer__cancel">
+                                <button>Cancel</button>
+                            </div>
+                            <div class="modal-footer__apply">
+                                <button>Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <p>&copy;copyright</p>
+        </footer>
+
+
+
+
+
     </main>
-   
+
 </body>
+
 </html>
