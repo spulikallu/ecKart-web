@@ -21,6 +21,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="header__search">
+                    <input type="text" placeholder="Search"></input>
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="header__cart">
@@ -84,7 +85,8 @@
                 <div class="products__add">
                     <button>Add to Cart</button>
                 </div>
-            </div>            <div class="products__item">
+            </div>
+            <div class="products__item">
                 <img src="images/logo.png">
                 <h2>Item1</h2>
                 <div class="products__cost">
@@ -109,9 +111,48 @@
                 </div>
             </div>
         </section>
+        <section class="modal-container">
+            <button id="myBtn">Open Modal</button>
+            <div class="modal">
+
+                <div class="modal-content">
+                    <div class="filter-modal">
+                        <h2>Filter Options</h2>
+                        <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+
+                        </div>
+                        <div class="filter-modal__range">
+
+
+                            <div id="slider-non-linear-step" class="filter-modal__step">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="modal-footer__action">
+                            <div class="modal-footer__cancel">
+                                <button>Cancel</button>
+                            </div>
+                            <div class="modal-footer__apply">
+                                <button>Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <footer class="footer">
             <p>&copy;copyright</p>
         </footer>
+
+
+
+
+
     </main>
 
 </body>

@@ -8,7 +8,7 @@
   }
 
   &__logo {
-    flex-grow: 10;
+    flex-grow: 1;
 
     .fa-star {
       cursor: pointer;
@@ -19,15 +19,40 @@
   }
 
   &__search {
-    flex-grow: 1;
+    flex-grow: 10;
+    text-align: right;
+    margin-right: 25px;
+
     .fa-search {
       cursor: pointer;
       font-size: 20px;
+      color: $color-white;
+      margin-left: -25px;
+    }
+    input {
+      font-family: $font-medium;
+      padding-bottom: 5px;
+      background-color: $color-primary;
+      border: 0;
+      border-bottom: 2px solid $color-white;
+      color: $color-white;
+      width: 95%;
+      max-width: 250px;
+      font-size: 14px;
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    & ::placeholder {
       color: $color-white;
     }
   }
 
   &__cart {
+    text-align: right;
+    padding-right: 10px;
+    padding-right: 20px;
     position: relative;
     flex-grow: 1;
 
@@ -44,10 +69,10 @@
         font-size: 12px;
         font-family: $font-dark;
         position: absolute;
-        padding-left: 6px;
+        padding-right: 5px;
         padding-top: 3px;
-        top: -5px;
-        left: 15px;
+        top: -7px;
+        right: 10px;
         background-color: $color-alert;
       }
     }

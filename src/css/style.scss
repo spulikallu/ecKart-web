@@ -1,4 +1,5 @@
 @import '~normalize.css/normalize.css';
+@import '~nouislider/distribute/nouislider.css';
 @import './core/variables';
 @import './core/media';
 @import './core/fonts';
@@ -9,3 +10,5 @@
 @import './components/productsControl';
 @import './components/products';
 @import './components/footer';
+@import './components/modal';
+@import './components/filter';
