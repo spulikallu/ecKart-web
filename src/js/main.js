@@ -43,7 +43,7 @@ shoppingListInstance.render();
   }
 });
 */ import noUiSlider from 'nouislider/distribute/nouislider.js';
-console.log(noUiSlider);
+
 var nonLinearStepSlider = document.getElementById('slider-non-linear-step');
 
 noUiSlider.create(nonLinearStepSlider, {
