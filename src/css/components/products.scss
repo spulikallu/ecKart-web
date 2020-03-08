@@ -1,61 +1,146 @@
-.products {
+@include media-breakpoint-up(md) {
+}
+.product-section {
   display: flex;
-  flex-wrap: wrap;
 
-  &__item {
-    flex-basis: 50%;
-    border: 1px solid $color-border;
-    img {
-      width: 100%;
-      padding: 10px;
-    }
-    h2 {
-      font-family: $font-light;
-      font-size: 18px;
-      padding: 10px;
-      margin: 0;
-    }
-  }
-
-  &__cost {
-    font-family: $font-medium;
-    padding: 0 10px;
-    letter-spacing: 0.2px;
-    font-size: 16px;
-    span {
-      display: inline-block;
-      padding-right: 5px;
-    }
-  }
-
-  &__actual-price {
-    color: $color-light;
-    font-size: 14px;
-    text-decoration: line-through;
-  }
-
-  &__discount {
-    color: $color-info;
-    font-size: 14px;
-    font-family: $font-dark;
-  }
-
-  &__add {
-    padding: 10px;
-    width: 100%;
-    button {
-      width: 100px;
-      font-family: $font-dark;
-      font-size: 14px;
-      border-radius: 20px;
-      background-color: $color-secondary;
-      height: 30px;
-      margin: 0 auto;
+  .filters {
+    display: none;
+    @include media-breakpoint-up(md) {
       display: block;
-      padding-top: 2px;
-      outline: 0;
-      border: 0;
-      cursor: pointer;
+      flex-basis: 20%;
+      border-right: 2px solid $color-border;
+    }
+    .filter-modal__step-value {
+      margin: 10px;
+    }
+    .filter-modal__range {
+      text-align: center;
+      p {
+        margin-top: 5px;
+        font-size: $font-small;
+        font-family: $font-medium;
+      }
+      button {
+        background-color: $color-primary;
+        color: $color-white;
+        padding: 5px 30px;
+        border-radius: 20px;
+        font-family: $font-medium;
+        font-size: $font-level5;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    @include media-breakpoint-up(md) {
+      flex-basis: 80%;
+      justify-content: space-between;
+    }
+
+    &__sort-container {
+      display: none;
+      @include media-breakpoint-up(md) {
+        display: block;
+        flex-basis: 100%;
+      }
+
+      .sort-modal__sortby {
+        ul {
+          margin-top: 10px;
+          padding-left: 0;
+          margin-bottom: 20px;
+          li {
+            display: inline-block;
+            margin-right: 15px;
+
+            &:first-child {
+              font-family: $font-dark;
+              border-bottom: none;
+            }
+            a {
+              text-decoration: none;
+              cursor: pointer;
+              font-family: $font-medium;
+              font-size: $font-level5;
+              color: $color-light;
+
+              &.active {
+                color: $color-link;
+                border-bottom: 2px solid $color-link;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__item {
+      flex-basis: 50%;
+      @include media-breakpoint-up(md) {
+        flex-basis: 20%;
+      }
+      border: 1px solid $color-border;
+      @include media-breakpoint-up(md) {
+        border: none;
+      }
+      img {
+        width: 100%;
+        padding: 10px 10px 0 10px;
+      }
+      h2 {
+        font-family: $font-light;
+        font-size: $font-level3;
+        padding: 0 10px 10px 10px;
+        margin: 0;
+      }
+    }
+
+    &__cost {
+      font-family: $font-medium;
+      padding: 0 10px;
+      letter-spacing: 0.2px;
+      font-size: $font-level4;
+      span {
+        display: inline-block;
+        padding-right: 5px;
+      }
+    }
+
+    &__actual-price {
+      color: $color-light;
+      font-size: $font-level5;
+      text-decoration: line-through;
+    }
+
+    &__discount {
+      color: $color-info;
+      font-size: $font-level5;
+      font-family: $font-dark;
+    }
+
+    &__add {
+      padding: 10px;
+      width: 100%;
+      button {
+        width: 100px;
+        font-family: $font-dark;
+        font-size: $font-level5;
+        border-radius: 20px;
+        background-color: $color-secondary;
+        height: 30px;
+        margin: 0 auto;
+        display: block;
+        padding-top: 2px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+      }
     }
   }
 }

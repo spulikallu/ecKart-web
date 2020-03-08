@@ -12,7 +12,7 @@
 
     .fa-star {
       cursor: pointer;
-      font-size: 30px;
+      font-size: $font-level1;
       padding: 10px;
       color: $color-brand;
     }
@@ -25,7 +25,7 @@
 
     .fa-search {
       cursor: pointer;
-      font-size: 20px;
+      font-size: $font-level2;
       color: $color-white;
       margin-left: -25px;
     }
@@ -38,7 +38,7 @@
       color: $color-white;
       width: 95%;
       max-width: 250px;
-      font-size: 14px;
+      font-size: $font-level5;
       &:focus {
         outline: 0;
       }
@@ -58,7 +58,7 @@
 
     .fa-shopping-cart {
       cursor: pointer;
-      font-size: 20px;
+      font-size: $font-level2;
       color: $color-white;
       right: 0;
       &:after {
@@ -66,7 +66,7 @@
         height: 18px;
         width: 18px;
         border-radius: 50%;
-        font-size: 12px;
+        font-size: $font-small;
         font-family: $font-dark;
         position: absolute;
         padding-right: 5px;
