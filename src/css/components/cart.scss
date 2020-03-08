@@ -1,5 +1,12 @@
 .cart-page {
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+
   .cart {
+    @include media-breakpoint-up(md) {
+      flex-grow: 1;
+    }
     &__item {
       display: flex;
       padding: 10px;
@@ -109,6 +116,9 @@
   }
 
   .price {
+    @include media-breakpoint-up(md) {
+      flex-grow: 1;
+    }
     border: 1px solid $color-light;
     margin: 10px 10px 100px 10px;
     background-color: $color-white;
@@ -128,8 +138,8 @@
     &__cost {
       padding: 15px 15px 5px 15px;
       display: flex;
-      .quantitiy {
-        font-size: 12px;
+      .quantity {
+        font-size: 14px;
       }
       &--discount {
         margin-bottom: 10px;

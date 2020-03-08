@@ -1,6 +1,7 @@
 .app-container {
   background-color: $color-background;
   padding-bottom: 35px;
+  min-height: 100vh;
 }
 .app-content {
   max-width: 1440px;
