@@ -102,5 +102,8 @@
   "bugs": {
     "url": "https://github.com/spulikallu/ecKart-web/issues"
   },
-  "homepage": "https://github.com/spulikallu/ecKart-web#readme"
+  "homepage": "https://github.com/spulikallu/ecKart-web#readme",
+  "dependencies": {
+    "nouislider": "^14.1.1"
+  }
 }

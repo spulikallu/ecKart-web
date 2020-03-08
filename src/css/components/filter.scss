@@ -1,0 +1,60 @@
+.filter-modal {
+  h2 {
+    padding: 10px;
+    margin: 0;
+    font-family: $font-dark;
+    font-size: 16px;
+  }
+
+  &__range {
+    margin: 0 30px 30px 30px;
+  }
+
+  &__step-value {
+    margin: 30px 10px 10px 10px;
+    font-family: $font-medium;
+    font-size: 13px;
+    color: $color-light;
+    display: flex;
+  }
+
+  &__step {
+    height: 2px;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    box-shadow: none;
+  }
+
+  &__range-start,
+  &__range-end {
+    flex-grow: 1;
+    .fa-rupee-sign {
+      margin-right: 2px;
+    }
+  }
+  &__range-start {
+    text-align: left;
+  }
+  &__range-end {
+    text-align: right;
+  }
+
+  .noUi-horizontal {
+    .noUi-handle {
+      width: 15px;
+      height: 15px;
+      right: -1px;
+      top: -8px;
+      border: 2px solid $color-light;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: none;
+      outline: 0;
+      cursor: pointer;
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
