@@ -42,7 +42,7 @@
         border: none;
         font-family: $font-medium;
         color: $color-link;
-        font-size: 16px;
+        font-size: $font-level4;
         &:focus {
           outline: none;
         }
