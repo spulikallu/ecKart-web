@@ -1,0 +1,183 @@
+.cart-page {
+  .cart {
+    &__item {
+      display: flex;
+      padding: 10px;
+      border: 1px solid $color-light;
+      margin: 10px 10px 15px 10px;
+      background-color: $color-white;
+
+      &-image {
+        flex-grow: 1;
+        text-align: left;
+        img {
+          padding: 5px 5px 0 5px;
+          width: 120px;
+        }
+      }
+
+      &-cost {
+        font-family: $font-medium;
+        margin-top: 10px;
+        letter-spacing: 0.2px;
+        font-size: 16px;
+        span {
+          display: inline-block;
+          padding-right: 5px;
+        }
+      }
+
+      &-actual-price {
+        color: $color-light;
+        font-size: 14px;
+        text-decoration: line-through;
+      }
+
+      &-discount {
+        color: $color-info;
+        font-size: 14px;
+        font-family: $font-dark;
+      }
+
+      &-content {
+        margin-top: 5px;
+        margin-left: 5px;
+        flex-grow: 11;
+
+        h2 {
+          font-family: $font-light;
+          font-size: 18px;
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      &-action {
+        margin-top: 10px;
+        display: flex;
+        div {
+          text-align: center;
+          margin-right: 8px;
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+          border: 1px solid $color-light;
+          color: $color-light;
+          font-size: 14px;
+        }
+
+        .cart__item-minus,
+        .cart__item-plus {
+          padding-top: 3px;
+          cursor: pointer;
+        }
+
+        .cart__item-text {
+          width: 30px;
+          border-radius: 0;
+          input {
+            width: 25px;
+            height: 20px;
+            padding: 8px 3px 5px 8px;
+            border: none;
+            font-family: $font-medium;
+            font-size: 13px;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      &-remove {
+        margin-top: 15px;
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          text-transform: uppercase;
+          font-family: $font-dark;
+          letter-spacing: 1px;
+          font-size: 16px;
+          padding: 0;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .price {
+    border: 1px solid $color-light;
+    margin: 10px 10px 100px 10px;
+    background-color: $color-white;
+    height: 200px;
+
+    h2 {
+      font-family: $font-medium;
+      color: $color-light;
+      text-transform: uppercase;
+      font-size: 18px;
+      margin: 0;
+      padding: 10px;
+      border-bottom: 1px solid $color-border;
+      letter-spacing: 2;
+    }
+
+    &__cost {
+      padding: 15px 15px 5px 15px;
+      display: flex;
+      .quantitiy {
+        font-size: 12px;
+      }
+      &--discount {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__item-cost {
+      font-family: $font-light;
+      flex-grow: 2;
+      flex-basis: 30%;
+    }
+
+    &__item-seperator {
+      flex-grow: 1;
+    }
+
+    &__item-price {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    &__payable {
+      border-top: 1px solid $color-light;
+      font-family: $font-medium;
+      letter-spacing: 1px;
+      font-size: 18px;
+      padding: 15px;
+      display: flex;
+      p {
+        margin: 0;
+      }
+      div {
+        flex-grow: 1;
+      }
+      &__price {
+        text-align: right;
+      }
+      .products__selling-price {
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+    }
+  }
+  .fa-rupee-sign {
+    margin-right: 2px;
+  }
+}
+
+/*
+TODO: ruppe symbol gap
+*/
