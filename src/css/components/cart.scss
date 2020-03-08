@@ -1,5 +1,12 @@
 .cart-page {
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+
   .cart {
+    @include media-breakpoint-up(md) {
+      flex-grow: 1;
+    }
     &__item {
       display: flex;
       padding: 10px;
@@ -20,7 +27,7 @@
         font-family: $font-medium;
         margin-top: 10px;
         letter-spacing: 0.2px;
-        font-size: 16px;
+        font-size: $font-level4;
         span {
           display: inline-block;
           padding-right: 5px;
@@ -29,13 +36,13 @@
 
       &-actual-price {
         color: $color-light;
-        font-size: 14px;
+        font-size: $font-level5;
         text-decoration: line-through;
       }
 
       &-discount {
         color: $color-info;
-        font-size: 14px;
+        font-size: $font-level5;
         font-family: $font-dark;
       }
 
@@ -46,7 +53,7 @@
 
         h2 {
           font-family: $font-light;
-          font-size: 18px;
+          font-size: $font-level3;
           padding: 0;
           margin: 0;
         }
@@ -63,7 +70,7 @@
           border-radius: 50%;
           border: 1px solid $color-light;
           color: $color-light;
-          font-size: 14px;
+          font-size: $font-level5;
         }
 
         .cart__item-minus,
@@ -81,7 +88,7 @@
             padding: 8px 3px 5px 8px;
             border: none;
             font-family: $font-medium;
-            font-size: 13px;
+            font-size: $font-level6;
             &:focus {
               outline: none;
             }
@@ -98,7 +105,7 @@
           text-transform: uppercase;
           font-family: $font-dark;
           letter-spacing: 1px;
-          font-size: 16px;
+          font-size: $font-level4;
           padding: 0;
           &:focus {
             outline: none;
@@ -109,6 +116,9 @@
   }
 
   .price {
+    @include media-breakpoint-up(md) {
+      flex-grow: 1;
+    }
     border: 1px solid $color-light;
     margin: 10px 10px 100px 10px;
     background-color: $color-white;
@@ -118,7 +128,7 @@
       font-family: $font-medium;
       color: $color-light;
       text-transform: uppercase;
-      font-size: 18px;
+      font-size: $font-level3;
       margin: 0;
       padding: 10px;
       border-bottom: 1px solid $color-border;
@@ -128,8 +138,8 @@
     &__cost {
       padding: 15px 15px 5px 15px;
       display: flex;
-      .quantitiy {
-        font-size: 12px;
+      .quantity {
+        font-size: $font-level5;
       }
       &--discount {
         margin-bottom: 10px;
@@ -155,7 +165,7 @@
       border-top: 1px solid $color-light;
       font-family: $font-medium;
       letter-spacing: 1px;
-      font-size: 18px;
+      font-size: $font-level3;
       padding: 15px;
       display: flex;
       p {
@@ -168,7 +178,7 @@
         text-align: right;
       }
       .products__selling-price {
-        font-size: 16px;
+        font-size: $font-level4;
         letter-spacing: 0;
       }
     }

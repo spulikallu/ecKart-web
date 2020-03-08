@@ -3,7 +3,7 @@
     padding: 10px;
     margin: 0;
     font-family: $font-dark;
-    font-size: 16px;
+    font-size: $font-level4;
   }
 
   &__range {
@@ -13,7 +13,7 @@
   &__step-value {
     margin: 30px 10px 10px 10px;
     font-family: $font-medium;
-    font-size: 13px;
+    font-size: $font-level6;
     color: $color-light;
     display: flex;
   }
