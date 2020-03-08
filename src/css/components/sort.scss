@@ -1,0 +1,27 @@
+.sort-modal {
+  h2 {
+    padding: 10px;
+    margin: 0;
+    font-family: $font-dark;
+    font-size: 16px;
+  }
+
+  &__sortby {
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: 5px;
+        span {
+          margin-left: 10px;
+          font-family: $font-medium;
+          color: $color-light;
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+      input[type='radio'] {
+        cursor: pointer;
+      }
+    }
+  }
+}
