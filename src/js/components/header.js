@@ -1,18 +1,40 @@
 import Component from '../core/component.js';
 import store from '../store/index.js';
+import Search from '../components/search.js';
+import Cart from '../components/cart.js';
 
-export default class Status extends Component {
+export default class Header extends Component {
   constructor() {
     super({
       store,
-      element: document.querySelector('.js-status'),
+      element: document.querySelector('.js-header-component')
     });
   }
 
   render() {
     let self = this;
-    let suffix = store.state.items.length !== 1 ? 's' : '';
+    self.element.innerHTML = `
+      <div class="header__container">
+        <div class="header__logo js-logo">
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="header__search js-search-component">
 
-    self.element.innerHTML = `${store.state.items.length} item${suffix}`;
+        </div>
+        <div class="header__cart js-cart-component">
+            
+        </div>
+      </div>
+      `;
+
+    setTimeout(function() {
+      new Search().render();
+      new Cart().render();
+    });
+
+    self.element.querySelector('.js-logo').addEventListener('click', () => {
+      document.querySelector('.js-cart-page').style = 'display:none';
+      document.querySelector('.js-product-page').style = 'display:block';
+    });
   }
 }
