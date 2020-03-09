@@ -7,23 +7,29 @@ export default {
   sort(state, payload) {
     state.sortby = payload;
     state.ui = this.applySort(state);
+    state.ui = this.applyFilter(state);
   },
 
-  /*filter(state, payload) {},*/
+  filter(state, payload) {
+    Object.assign(state.ui, state.items);
+    Object.assign(state, payload);
+    state.ui = this.applyFilter(state);
+    state.ui = this.applySort(state);
+  },
 
   search(state, payload) {
-    state.ui = [];
-    state.ui.push(...state.items);
+    Object.assign(state.ui, state.items);
     state.searchText = payload;
     let filtered = state.ui.filter(item => {
       return item.name.toLowerCase().startsWith(payload.toLowerCase());
     });
-    state.ui = filtered;
+    state.ui = Object.assign([], filtered);
   },
 
   add(state, payload) {
-    state.items.push(payload);
-    return state;
+    payload.ui = [];
+    Object.assign(payload.ui, payload.items);
+    Object.assign(state, payload);
   },
 
   clear(state, payload) {
@@ -42,6 +48,13 @@ export default {
       } else {
         return -1;
       }
+    });
+  },
+
+  applyFilter(state) {
+    return state.ui.filter(item => {
+      let price = item.price - (item.price * item.discount) / 100;
+      return price > state.filterMin && price < state.filterMax;
     });
   }
 };

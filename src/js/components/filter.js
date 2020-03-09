@@ -13,7 +13,14 @@ export default class Filter extends Component {
     let self = this;
 
     self.element.innerHTML = `
-      <a href=""><i class="fas fa-filter"><span>Filter</span></i></a>
+      <a href="javascript:void(0)" class="js-filter"><i class="fas fa-filter"><span>Filter</span></i></a>
     `;
+
+    self.element.querySelector('.js-filter').addEventListener('click', () => {
+      document.getElementById('app-modal').style = 'display:block';
+      document.querySelector('.js-modal-container').style = 'display:block';
+      document.querySelector('.js-sort-modal').style = 'display:none';
+      document.querySelector('.js-filter-modal').style = 'display:block';
+    });
   }
 }
