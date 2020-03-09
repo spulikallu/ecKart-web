@@ -15,191 +15,25 @@
 
 <body>
     <main class="app-container">
-        <header class="header js-header">
-            <div class="header__container">
-                <div class="header__logo">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="header__search">
-                    <input type="text" placeholder="Search"></input>
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="header__cart">
-                    <i class="fas fa-shopping-cart" data-badge="5"></i>
-                </div>
-            </div>
+        <header class="header js-header-component">
+
         </header>
         <div class="app-content">
-            <section class="products-control" style="display: none;">
-                <div class="products-control__sort">
-                    <a href=""><i class="fas fa-sort"><span>Sort</span></Sort></i></a>
-                </div>
-                <div class="products-control__filter">
-                    <a href=""><i class="fas fa-filter"><span>Filter</span></i></a>
-                </div>
-            </section>
-            <section class="product-section" style="display: none;">
-                <aside class="filters">
-                    <div class="filter-modal">
-                        <h2>Filters</h2>
-                        <div id="slider-non-linear-step-value" class="filter-modal__step-value">
-
-                        </div>
-                        <div class="filter-modal__range">
-                            <div id="slider-non-linear-step" class="filter-modal__step">
-                            </div>
-                            <p>Price</p>
-
-                            <button>Apply</button>
-                        </div>
+            <div class="js-product-page">
+                <section class="products-control">
+                    <div class="products-control__sort js-sort-component">
 
                     </div>
-                </aside>
+                    <div class="products-control__filter js-filter-component">
 
-                <section class="products">
-
-                    <section class="products__sort-container">
-                        <div class="sort-modal">
-                           
-                            <div class="sort-modal__sortby">
-                                <ul>
-                                    <li>Sort By</li>
-                                    <li><a class="active" href="">Price -- High Low</a></li>
-                                    <li><a href="">Price -- Low High</a></li>
-                                    <li><a href="">Discount</a></li>
-                                </ul>
-                            </div>
-
-
-                        </div>
-                    </section>
-
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="products__item">
-                        <img src="images/item-1.jpeg">
-                        <h2>Item1</h2>
-                        <div class="products__cost">
-                            <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
-                            <span class="products__actual-price">900</span>
-                            <span class="products__discount">64% off</span>
-                        </div>
-                        <div class="products__add">
-                            <button>Add to Cart</button>
-                        </div>
                     </div>
                 </section>
-            </section>
-            <section class="modal-container" style="display: none;">
-                <button id="myBtn">Open Modal</button>
-                <div class="modal">
+                <section class="product-section js-product-list-component">
 
-                    <div class="modal-content">
-                        <div class="filter-modal" style="display: none;">
-                            <h2>Filter Options</h2>
-                            <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+                </section>
+            </div>
 
-                            </div>
-                            <div class="filter-modal__range">
-
-
-                                <div id="slider-non-linear-step" class="filter-modal__step">
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="sort-modal">
-                            <h2>Sort Options</h2>
-                            <div class="sort-modal__sortby">
-                                <ul>
-                                    <li><input type="radio" name="sortby" value="0"></input><span>Price -- High
-                                            Low</span>
-                                    </li>
-                                    <li><input type="radio" name="sortby" value="1"></input><span>Price -- Low
-                                            High</span>
-                                    </li>
-                                    <li><input type="radio" name="sortby" value="2"></input><span>Discount</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="modal-footer">
-                            <div class="modal-footer__action">
-                                <div class="modal-footer__cancel">
-                                    <button>Cancel</button>
-                                </div>
-                                <div class="modal-footer__apply">
-                                    <button>Apply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="cart-page">
+            <div class="cart-page js-cart-page">
                 <section class="cart">
                     <div class="cart__item">
                         <div class="cart__item-image">
@@ -262,6 +96,57 @@
                     </div>
                 </section>
             </div>
+            <section class="modal-container js-modal-container">
+                <div id="app-modal" class="modal">
+
+                    <div class="modal-content">
+                        <div class="filter-modal js-filter-modal">
+                            <h2>Filter Options</h2>
+                            <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+
+                            </div>
+                            <div class="filter-modal__range">
+
+
+                                <div id="slider-non-linear-step" class="filter-modal__step">
+
+                                </div>
+                                <p>Price</p>
+                            </div>
+
+                        </div>
+                        <div class="sort-modal js-sort-modal">
+                            <h2>Sort Options</h2>
+                            <div class="sort-modal__sortby">
+                                <ul>
+                                    <li><input type="radio" name="sortby" value="priceHigh" checked></input><span>Price -- High
+                                            Low</span>
+                                    </li>
+                                    <li><input type="radio" name="sortby" value="priceLow"></input><span>Price -- Low
+                                            High</span>
+                                    </li>
+                                    <li><input type="radio" name="sortby" value="discount"></input><span>Discount</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <div class="modal-footer__action">
+                                <div class="modal-footer__cancel js-modal-cancel">
+                                    <button>Cancel</button>
+                                </div>
+                                <div class="modal-footer__apply js-modal-apply">
+                                    <button>Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
 

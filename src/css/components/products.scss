@@ -40,7 +40,7 @@
     flex-wrap: wrap;
     @include media-breakpoint-up(md) {
       flex-basis: 80%;
-      justify-content: space-between;
+      justify-content: left;
     }
 
     &__sort-container {

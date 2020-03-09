@@ -1,4 +1,5 @@
 .cart-page {
+  display: none;
   @include media-breakpoint-up(md) {
     display: flex;
   }
