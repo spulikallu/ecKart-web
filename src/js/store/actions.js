@@ -1,6 +1,6 @@
 export default {
-  init(context, payload) {
-    context.commit('init', payload);
+  load(context, payload) {
+    context.commit('load', payload);
   },
 
   search(context, payload) {
@@ -15,7 +15,15 @@ export default {
     context.commit('filter', payload);
   },
 
-  add(context, payload) {
-    context.commit('add', payload);
+  addItem(context, payload) {
+    context.commit('addItem', payload);
+  },
+
+  removeItem(context, payload) {
+    context.commit('removeItem', payload);
+  },
+
+  removeItems(context, payload) {
+    context.commit('removeItems', payload);
   }
 };

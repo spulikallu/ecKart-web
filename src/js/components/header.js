@@ -33,7 +33,7 @@ export default class Header extends Component {
     });
 
     self.element.querySelector('.js-logo').addEventListener('click', () => {
-      document.querySelector('.js-cart-page').style = 'display:none';
+      document.querySelector('.js-checkout-page').style = 'display:none';
       document.querySelector('.js-product-page').style = 'display:block';
     });
   }

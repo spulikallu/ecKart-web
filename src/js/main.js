@@ -4,6 +4,7 @@ import Header from './components/header.js';
 import Sort from './components/Sort.js';
 import Filter from './components/Filter.js';
 import List from './components/list.js';
+import Checkout from './components/checkout.js';
 import Modal from './components/modal.js';
 import noUiSlider from 'nouislider/distribute/nouislider.js';
 
@@ -13,7 +14,7 @@ fetch('/data/products.json')
   })
   .then(data => {
     if (data) {
-      store.dispatch('add', data);
+      store.dispatch('load', data);
     }
 
     const headerComponent = new Header();
@@ -24,6 +25,9 @@ fetch('/data/products.json')
     filterComponent.render();
     const listComponent = new List();
     listComponent.render();
+    const checkoutComponent = new Checkout();
+    checkoutComponent.render();
+
     new Modal().init();
   });
 
