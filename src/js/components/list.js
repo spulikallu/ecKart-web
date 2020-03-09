@@ -16,11 +16,11 @@ export default class List extends Component {
     <aside class="filters">
       <div class="filter-modal">
           <h2>Filters</h2>
-          <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+          <div id="slider-non-linear-step-value-md" class="filter-modal__step-value">
 
           </div>
           <div class="filter-modal__range">
-              <div id="slider-non-linear-step" class="filter-modal__step">
+              <div id="slider-non-linear-step-md" class="filter-modal__step">
               </div>
               <p>Price</p>
 
