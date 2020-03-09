@@ -90,15 +90,12 @@ export default {
   },
 
   getItemById(list, id) {
-    console.log(list);
     return list.filter(item => {
-      console.log(item.id);
       return item.id == id;
     })[0];
   },
 
   groupBy(list, props) {
-    console.log(list);
     return list.reduce((a, b) => {
       (a[b[props]] = a[b[props]] || []).push(b);
       return a;
