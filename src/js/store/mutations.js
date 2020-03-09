@@ -27,6 +27,19 @@ export default {
     state.ui = Object.assign([], filtered);
   },
 
+  addItem(state, payload) {
+    var cartItem = state.cart;
+    let item = this.getItemById(cartItem, payload);
+    if (item) {
+      item.quantity = item.quantity + 1;
+    } else {
+      item = this.getItemById(state.ui, payload);
+      item.quantity = 1;
+      cartItem.push(item);
+    }
+    state.cart = cartItem;
+  },
+
   applySort(state) {
     return state.ui.sort((item1, item2) => {
       if (state.sortby === 'priceHigh' && item1.price < item2.price) {
@@ -46,5 +59,21 @@ export default {
       let price = item.price - (item.price * item.discount) / 100;
       return price > state.filterMin && price < state.filterMax;
     });
+  },
+
+  getItemById(list, id) {
+    console.log(list);
+    return list.filter(item => {
+      console.log(item.id);
+      return item.id == id;
+    })[0];
+  },
+
+  groupBy(list, props) {
+    console.log(list);
+    return list.reduce((a, b) => {
+      (a[b[props]] = a[b[props]] || []).push(b);
+      return a;
+    }, {});
   }
 };

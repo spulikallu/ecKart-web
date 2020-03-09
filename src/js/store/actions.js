@@ -13,5 +13,9 @@ export default {
 
   filter(context, payload) {
     context.commit('filter', payload);
+  },
+
+  addItem(context, payload) {
+    context.commit('addItem', payload);
   }
 };
