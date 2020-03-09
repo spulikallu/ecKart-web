@@ -11,6 +11,17 @@ export default class Checkout extends Component {
 
   render() {
     let self = this;
+    let itemCount = 0;
+    let totalPrice = 0;
+    let totalDiscount = 0;
+    let totalPayable = 0;
+
+    store.state.cart.forEach(element => {
+      itemCount = itemCount + element.quantity;
+      totalPrice = totalPrice + element.price * element.quantity;
+      totalDiscount = totalDiscount + ((element.price * element.discount) / 100) * element.quantity;
+    });
+    totalPayable = totalPrice - totalDiscount;
 
     self.element.innerHTML =
       `
@@ -47,7 +58,9 @@ export default class Checkout extends Component {
                   <i class="fa fa-plus" aria-hidden="true" ></i> </div>
               </div>
               <div class="cart__item-remove">
-                  <button>Remove</button>
+                  <button class="js-remove" data-item-id="` +
+            item.id +
+            `">Remove</button>
               </div>
           </div>
       </div>`
@@ -60,13 +73,13 @@ export default class Checkout extends Component {
         <h2>PRICE DETAILS</h2>
         <div class="price__cost">
             <div class="price__item-cost">
-                Price <span class="quantity">(2 item(s))</span>
+                Price <span class="quantity">(${itemCount} item(s))</span>
             </div>
             <div class="price__item-seperator">
                 :
             </div>
             <div class="price__item-price">
-                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>319</span>
+                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>${totalPrice}</span>
             </div>
 
         </div>
@@ -78,7 +91,7 @@ export default class Checkout extends Component {
                 :
             </div>
             <div class="price__item-price">
-                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>579</span>
+                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>${totalDiscount}</span>
             </div>
 
         </div>
@@ -87,7 +100,7 @@ export default class Checkout extends Component {
                 <p>Total Payable</p>
             </div>
             <div class="price__payable__price">
-                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>579</span>
+                <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>${totalPayable}</span>
             </div>
         </div>
     </section>
@@ -103,6 +116,12 @@ export default class Checkout extends Component {
       self.element.querySelectorAll('.js-item-minus').forEach(item => {
         item.addEventListener('click', () => {
           store.dispatch('removeItem', parseInt(item.getAttribute('data-item-id')));
+        });
+      });
+
+      self.element.querySelectorAll('.js-remove').forEach(item => {
+        item.addEventListener('click', () => {
+          store.dispatch('removeItems', parseInt(item.getAttribute('data-item-id')));
         });
       });
     }

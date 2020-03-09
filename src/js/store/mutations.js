@@ -57,6 +57,17 @@ export default {
     state.cart = cartItems;
   },
 
+  removeItems(state, payload) {
+    let cartItems = state.cart;
+    cartItems.splice(
+      cartItems.findIndex(list => {
+        return list.id === payload;
+      }),
+      1
+    );
+    state.cart = cartItems;
+  },
+
   applySort(state) {
     return state.ui.sort((item1, item2) => {
       if (state.sortby === 'priceHigh' && item1.price < item2.price) {

@@ -21,5 +21,9 @@ export default {
 
   removeItem(context, payload) {
     context.commit('removeItem', payload);
+  },
+
+  removeItems(context, payload) {
+    context.commit('removeItems', payload);
   }
 };
