@@ -1,8 +1,8 @@
 import '../css/style.scss';
 import store from './store/index.js';
 import Header from './components/header.js';
-import Sort from './components/Sort.js';
-import Filter from './components/Filter.js';
+import Sort from './components/sort.js';
+import Filter from './components/filter.js';
 import List from './components/list.js';
 import Checkout from './components/checkout.js';
 import Modal from './components/modal.js';
