@@ -15,7 +15,6 @@ export default class Modal {
     };
 
     setSortDefaults(sortElement, sortby);
-
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = 'none';
@@ -33,8 +32,8 @@ export default class Modal {
         store.dispatch('sort', document.querySelector('input[name="sortby"]:checked').value);
       } else {
         store.dispatch('filter', {
-          min: document.querySelector('.filter-modal__range-start span').innerHTML,
-          max: document.querySelector('.filter-modal__range-end span').innerHTML
+          filterMin: parseInt(document.querySelector('.filter-modal__range-start span').innerHTML),
+          filterMax: parseInt(document.querySelector('.filter-modal__range-end span').innerHTML)
         });
       }
 

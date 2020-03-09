@@ -12,8 +12,7 @@ export default class List extends Component {
   render() {
     let self = this;
     self.element.innerHTML =
-      `
-
+      `    
     <aside class="filters">
       <div class="filter-modal">
           <h2>Filters</h2>

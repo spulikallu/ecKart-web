@@ -17,9 +17,5 @@ export default {
 
   add(context, payload) {
     context.commit('add', payload);
-  },
-
-  clear(context, payload) {
-    context.commit('clear', payload);
   }
 };
