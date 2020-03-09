@@ -22,11 +22,11 @@ export default class Store {
       set: function(state, key, value) {
         state[key] = value;
 
-        // console.log(`stateChange: ${key}: ${value}`);
+        console.log(`stateChange: ${key}: ${value}`);
         self.events.publish('stateChange', self.state);
 
         if (self.status !== 'mutation') {
-          // console.warn(`You should use a mutation to set ${key}`);
+          console.warn(`You should use a mutation to set ${key}`);
         }
 
         self.status = 'resting';
@@ -38,21 +38,21 @@ export default class Store {
   dispatch(actionKey, payload) {
     let self = this;
     if (typeof self.actions[actionKey] !== 'function') {
-      //    console.error(`Action "${actionKey} doesn't exist.`);
+      console.error(`Action "${actionKey} doesn't exist.`);
       return false;
     }
 
-    //   console.groupCollapsed(`ACTION: ${actionKey}`);
+    console.groupCollapsed(`ACTION: ${actionKey}`);
     self.status = 'action';
     self.actions[actionKey](self, payload);
-    //   console.groupEnd();
+    console.groupEnd();
     return true;
   }
 
   commit(mutationKey, payload) {
     let self = this;
     if (typeof self.mutations[mutationKey] !== 'function') {
-      //  console.log(`Mutation "${mutationKey}" doesn't exist`);
+      console.log(`Mutation "${mutationKey}" doesn't exist`);
       return false;
     }
 
