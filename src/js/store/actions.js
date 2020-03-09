@@ -11,7 +11,9 @@ export default {
     context.commit('sort', payload);
   },
 
-  /* filter(context, payload) {},*/
+  filter(context, payload) {
+    context.commit('filter', payload);
+  },
 
   add(context, payload) {
     context.commit('add', payload);

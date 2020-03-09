@@ -9,7 +9,15 @@ export default {
     state.ui = this.applySort(state);
   },
 
-  /*filter(state, payload) {},*/
+  filter(state, payload) {
+    state.ui = [];
+    state.ui.push(...state.items);
+    state.filterMin = parseInt(payload.min);
+    state.filterMax = parseInt(payload.max);
+
+    state.ui = this.applyFilter(state);
+    console.log(state);
+  },
 
   search(state, payload) {
     state.ui = [];
@@ -42,6 +50,14 @@ export default {
       } else {
         return -1;
       }
+    });
+  },
+
+  applyFilter(state) {
+    return state.ui.filter(item => {
+      let price = item.price - (item.price * item.discount) / 100;
+      console.log(price);
+      return price > state.filterMin && price < state.filterMax;
     });
   }
 };

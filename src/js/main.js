@@ -87,10 +87,10 @@ noUiSlider.create(nonLinearStepSlider, {
 var nonLinearStepSliderValueElement = document.getElementById('slider-non-linear-step-value');
 
 nonLinearStepSlider.noUiSlider.on('update', function(values) {
-  nonLinearStepSliderValueElement.innerHTML = `<div class='filter-modal__range-start'> <i class="fas fa-rupee-sign"></i>${parseInt(
+  nonLinearStepSliderValueElement.innerHTML = `<div class='filter-modal__range-start'> <i class="fas fa-rupee-sign"></i><span>${parseInt(
     values[0]
-  )}</div>
-     <div class='filter-modal__range-end'> <i class="fas fa-rupee-sign"></i>${parseInt(
+  )}</span></div>
+     <div class='filter-modal__range-end'> <i class="fas fa-rupee-sign"></i><span>${parseInt(
        values[1]
-     )}</div>`;
+     )}</span></div>`;
 });
