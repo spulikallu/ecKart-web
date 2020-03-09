@@ -1,7 +1,8 @@
 export default {
-  init(state, payload) {
-    state.ui.push(...payload);
-    state.ui = this.applySort(state);
+  load(state, payload) {
+    payload.ui = [];
+    Object.assign(payload.ui, payload.items);
+    Object.assign(state, payload);
   },
 
   sort(state, payload) {
@@ -26,15 +27,45 @@ export default {
     state.ui = Object.assign([], filtered);
   },
 
-  add(state, payload) {
-    payload.ui = [];
-    Object.assign(payload.ui, payload.items);
-    Object.assign(state, payload);
+  addItem(state, payload) {
+    let cartItems = state.cart;
+    let item = this.getItemById(cartItems, payload);
+    if (item) {
+      item.quantity = item.quantity + 1;
+    } else {
+      item = this.getItemById(state.ui, payload);
+      item.quantity = 1;
+      cartItems.push(item);
+    }
+    state.cart = cartItems;
   },
 
-  clear(state, payload) {
-    state.items.splice(payload.index, 1);
-    return state;
+  removeItem(state, payload) {
+    let cartItems = state.cart;
+    let item = this.getItemById(cartItems, payload);
+    if (item) {
+      item.quantity = item.quantity - 1;
+      if (item.quantity == 0) {
+        cartItems.splice(
+          cartItems.findIndex(list => {
+            return list.id === payload;
+          }),
+          1
+        );
+      }
+    }
+    state.cart = cartItems;
+  },
+
+  removeItems(state, payload) {
+    let cartItems = state.cart;
+    cartItems.splice(
+      cartItems.findIndex(list => {
+        return list.id === payload;
+      }),
+      1
+    );
+    state.cart = cartItems;
   },
 
   applySort(state) {
@@ -56,5 +87,21 @@ export default {
       let price = item.price - (item.price * item.discount) / 100;
       return price > state.filterMin && price < state.filterMax;
     });
+  },
+
+  getItemById(list, id) {
+    console.log(list);
+    return list.filter(item => {
+      console.log(item.id);
+      return item.id == id;
+    })[0];
+  },
+
+  groupBy(list, props) {
+    console.log(list);
+    return list.reduce((a, b) => {
+      (a[b[props]] = a[b[props]] || []).push(b);
+      return a;
+    }, {});
   }
 };
