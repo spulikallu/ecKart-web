@@ -28,16 +28,33 @@ export default {
   },
 
   addItem(state, payload) {
-    var cartItem = state.cart;
-    let item = this.getItemById(cartItem, payload);
+    let cartItems = state.cart;
+    let item = this.getItemById(cartItems, payload);
     if (item) {
       item.quantity = item.quantity + 1;
     } else {
       item = this.getItemById(state.ui, payload);
       item.quantity = 1;
-      cartItem.push(item);
+      cartItems.push(item);
     }
-    state.cart = cartItem;
+    state.cart = cartItems;
+  },
+
+  removeItem(state, payload) {
+    let cartItems = state.cart;
+    let item = this.getItemById(cartItems, payload);
+    if (item) {
+      item.quantity = item.quantity - 1;
+      if (item.quantity == 0) {
+        cartItems.splice(
+          cartItems.findIndex(list => {
+            return list.id === payload;
+          }),
+          1
+        );
+      }
+    }
+    state.cart = cartItems;
   },
 
   applySort(state) {

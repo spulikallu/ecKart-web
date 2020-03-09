@@ -18,7 +18,8 @@ export default class Checkout extends Component {
     ` +
       store.state.cart
         .map(item => {
-          return `
+          return (
+            `
           <div class="cart__item">
           <div class="cart__item-image">
               <img src="${item.img_url}"></img>
@@ -35,17 +36,22 @@ export default class Checkout extends Component {
                   <span class="cart__item-discount">${item.discount}% off</span>
               </div>
               <div class="cart__item-action">
-                  <div class="cart__item-minus"> <i class="fa fa-minus" aria-hidden="true"></i> </div>
-                  <div class="cart__item-text"><input type="text" value="${
-                    item.quantity
-                  }" maxlength="2"> </div>
-                  <div class="cart__item-plus"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                  <div class="cart__item-minus js-item-minus"  data-item-id="` +
+            item.id +
+            `">
+                  <i class="fa fa-minus" aria-hidden="true"></i> </div>
+                  <div class="cart__item-text"><input type="text" value="${item.quantity}" maxlength="2"> </div>
+                  <div class="cart__item-plus js-item-plus" data-item-id="` +
+            item.id +
+            `"> 
+                  <i class="fa fa-plus" aria-hidden="true" ></i> </div>
               </div>
               <div class="cart__item-remove">
                   <button>Remove</button>
               </div>
           </div>
-      </div>`;
+      </div>`
+          );
         })
         .join(' ') +
       `   
@@ -86,5 +92,19 @@ export default class Checkout extends Component {
         </div>
     </section>
     `;
+
+    if (store.state.cart.length > 0) {
+      self.element.querySelectorAll('.js-item-plus').forEach(item => {
+        item.addEventListener('click', () => {
+          store.dispatch('addItem', parseInt(item.getAttribute('data-item-id')));
+        });
+      });
+
+      self.element.querySelectorAll('.js-item-minus').forEach(item => {
+        item.addEventListener('click', () => {
+          store.dispatch('removeItem', parseInt(item.getAttribute('data-item-id')));
+        });
+      });
+    }
   }
 }
