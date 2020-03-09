@@ -8,6 +8,13 @@
 
   &__range {
     margin: 0 30px 30px 30px;
+    text-align: center;
+    p {
+      margin: 5px;
+      font-size: $font-level5;
+      font-family: $font-medium;
+      color: $color-light;
+    }
   }
 
   &__step-value {

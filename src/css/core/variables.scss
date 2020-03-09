@@ -26,7 +26,7 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px,
+  xl: 1200px
 );
 
 /*----------------------------------------------------------------------------------
@@ -36,10 +36,10 @@ $font-dark: 'Roboto-Bold', sans-serif;
 $font-medium: 'Roboto-Medium', sans-serif;
 $font-light: 'Roboto-Light', sans-serif;
 
-$font-level1: 30px;
-$font-level2: 20px;
-$font-level3: 18px;
-$font-level4: 16px;
-$font-level5: 14px;
-$font-level6: 13px;
-$font-small: 12px;
+$font-level1: 1.875em;
+$font-level2: 1.25em;
+$font-level3: 1.125em;
+$font-level4: 1em;
+$font-level5: 0.875em;
+$font-level6: 0.813em;
+$font-small: 0.75em;

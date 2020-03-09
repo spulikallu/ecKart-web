@@ -1,6 +1,34 @@
-//TODO:
+import '../css/style.scss';
+import store from './store/index.js';
+import Header from './components/header.js';
+import Sort from './components/Sort.js';
+import Filter from './components/Filter.js';
+import List from './components/list.js';
+import Modal from './components/modal.js';
 
-import '../css/style.scss'; /*
+fetch('/data/products.json')
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    data &&
+      data.items.map(item => {
+        store.dispatch('add', item);
+      });
+    data && store.dispatch('init', data.items);
+
+    const headerComponent = new Header();
+    headerComponent.render();
+    const sortComponent = new Sort();
+    sortComponent.render();
+    const filterComponent = new Filter();
+    filterComponent.render();
+    const listComponent = new List();
+    listComponent.render();
+    new Modal().init();
+  });
+
+/*
 // Instantiate components
 const countInstance = new Count();
 //const listInstance = new List();
@@ -37,7 +65,7 @@ shoppingListInstance.render();
 
   // If there's some content, trigger the action and clear the field, ready for the next item
   if (value.length) {
-    store.dispatch('addItem', value);
+    store.dispatch('add', value);
     inputElement.value = '';
     inputElement.focus();
   }
@@ -52,8 +80,8 @@ noUiSlider.create(nonLinearStepSlider, {
     min: [100, 100],
     '10%': [500, 500],
     '50%': [4000, 1000],
-    max: [10000],
-  },
+    max: [10000]
+  }
 });
 
 var nonLinearStepSliderValueElement = document.getElementById('slider-non-linear-step-value');
