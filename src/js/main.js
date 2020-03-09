@@ -6,7 +6,7 @@ import Filter from './components/Filter.js';
 import List from './components/list.js';
 import Checkout from './components/checkout.js';
 import Modal from './components/modal.js';
-import noUiSlider from 'nouislider/distribute/nouislider.js';
+import Slider from './components/slider.js';
 
 fetch('/data/products.json')
   .then(response => {
@@ -27,29 +27,9 @@ fetch('/data/products.json')
     listComponent.render();
     const checkoutComponent = new Checkout();
     checkoutComponent.render();
-
     new Modal().init();
+    new Slider().init(
+      document.getElementById('slider-non-linear-step'),
+      document.getElementById('slider-non-linear-step-value')
+    );
   });
-
-var nonLinearStepSlider = document.getElementById('slider-non-linear-step');
-
-noUiSlider.create(nonLinearStepSlider, {
-  start: [100, 10000],
-  range: {
-    min: [100, 100],
-    '10%': [500, 500],
-    '50%': [4000, 1000],
-    max: [10000]
-  }
-});
-
-var nonLinearStepSliderValueElement = document.getElementById('slider-non-linear-step-value');
-nonLinearStepSlider.noUiSlider.on('update', function(values) {
-  nonLinearStepSliderValueElement.innerHTML = `
-  <div class='filter-modal__range-start'> <i class="fas fa-rupee-sign"></i><span>${parseInt(
-    values[0]
-  )}</span></div>
-     <div class='filter-modal__range-end'> <i class="fas fa-rupee-sign"></i><span>${parseInt(
-       values[1]
-     )}</span></div>`;
-});
