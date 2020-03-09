@@ -1,6 +1,6 @@
 export default {
-  init(context, payload) {
-    context.commit('init', payload);
+  load(context, payload) {
+    context.commit('load', payload);
   },
 
   search(context, payload) {
@@ -13,9 +13,5 @@ export default {
 
   filter(context, payload) {
     context.commit('filter', payload);
-  },
-
-  add(context, payload) {
-    context.commit('add', payload);
   }
 };

@@ -4,5 +4,6 @@ export default {
   searchText: '',
   sortby: 'priceHigh',
   filterMin: 100,
-  filterMax: 10000
+  filterMax: 10000,
+  cart: []
 };

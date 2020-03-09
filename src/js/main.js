@@ -13,7 +13,7 @@ fetch('/data/products.json')
   })
   .then(data => {
     if (data) {
-      store.dispatch('add', data);
+      store.dispatch('load', data);
     }
 
     const headerComponent = new Header();

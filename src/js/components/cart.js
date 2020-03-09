@@ -13,7 +13,7 @@ export default class Cart extends Component {
     let self = this;
 
     self.element.innerHTML = `
-      <i class="fas fa-shopping-cart js-cart" data-badge="5"></i>
+      <i class="fas fa-shopping-cart js-cart" data-badge="${store.state.cart.length}"></i>
       `;
 
     self.element.querySelector('.js-cart').addEventListener('click', () => {

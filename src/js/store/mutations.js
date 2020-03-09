@@ -1,7 +1,8 @@
 export default {
-  init(state, payload) {
-    state.ui.push(...payload);
-    state.ui = this.applySort(state);
+  load(state, payload) {
+    payload.ui = [];
+    Object.assign(payload.ui, payload.items);
+    Object.assign(state, payload);
   },
 
   sort(state, payload) {
@@ -24,17 +25,6 @@ export default {
       return item.name.toLowerCase().startsWith(payload.toLowerCase());
     });
     state.ui = Object.assign([], filtered);
-  },
-
-  add(state, payload) {
-    payload.ui = [];
-    Object.assign(payload.ui, payload.items);
-    Object.assign(state, payload);
-  },
-
-  clear(state, payload) {
-    state.items.splice(payload.index, 1);
-    return state;
   },
 
   applySort(state) {
