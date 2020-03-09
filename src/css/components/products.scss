@@ -1,12 +1,11 @@
-@include media-breakpoint-up(md) {
-}
 .product-section {
   display: flex;
+  justify-content: space-around;
 
   .filters {
     display: none;
     @include media-breakpoint-up(md) {
-      display: block;
+      display: none;
       flex-basis: 20%;
       border-right: 2px solid $color-border;
     }

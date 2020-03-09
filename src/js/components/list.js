@@ -13,35 +13,8 @@ export default class List extends Component {
     let self = this;
     self.element.innerHTML =
       `    
-    <aside class="filters">
-      <div class="filter-modal">
-          <h2>Filters</h2>
-          <div id="slider-non-linear-step-value-md" class="filter-modal__step-value">
-
-          </div>
-          <div class="filter-modal__range">
-              <div id="slider-non-linear-step-md" class="filter-modal__step">
-              </div>
-              <p>Price</p>
-
-              <button>Apply</button>
-          </div>
-      </div>
-  </aside>
-
   <section class="products">
-      <section class="products__sort-container">
-          <div class="sort-modal">
-              <div class="sort-modal__sortby">
-                  <ul>
-                      <li>Sort By</li>
-                      <li><a class="active" href="">Price -- High Low</a></li>
-                      <li><a href="">Price -- Low High</a></li>
-                      <li><a href="">Discount</a></li>
-                  </ul>
-              </div>
-          </div>
-      </section>
+     
     ` +
       store.state.ui
         .map(item => {

@@ -32,8 +32,4 @@ fetch('/data/products.json')
       document.getElementById('slider-non-linear-step'),
       document.getElementById('slider-non-linear-step-value')
     );
-    new Slider().init(
-      document.getElementById('slider-non-linear-step-md'),
-      document.getElementById('slider-non-linear-step-value-md')
-    );
   });
