@@ -19,9 +19,7 @@ fetch('/data/products.json')
   })
   .then(data => {
     if (data) {
-      console.log('logging returned state');
-      console.log(store.dispatch('load', data));
-      // store.dispatch('sort', 'priceHigh');
+      store.dispatch('load', data);
     }
 
     const headerComponent = new Header();

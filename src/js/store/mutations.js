@@ -7,10 +7,10 @@ export default {
     return state;
   },
 
-  search(state, payload) {
-    state.searchText = payload;
+  search(state, searchText) {
+    state.searchText = searchText;
     Object.assign(state.products, state.items);
-    state.products = Object.assign([], applySearch(state.products, payload));
+    state.products = Object.assign([], applySearch(state.products, searchText));
     return state;
   },
 
@@ -27,13 +27,13 @@ export default {
     return state;
   },
 
-  addItem(state, payload) {
+  addItem(state, product) {
     let cartItems = state.cart;
-    let item = getItemById(cartItems, payload);
+    let item = getItemById(cartItems, product);
     if (item) {
       item.quantity = item.quantity + 1;
     } else {
-      item = getItemById(state.products, payload);
+      item = getItemById(state.products, product);
       item.quantity = 1;
       cartItems.push(item);
     }
@@ -41,15 +41,15 @@ export default {
     return state;
   },
 
-  removeItem(state, payload) {
+  removeItem(state, product) {
     let cartItems = state.cart;
-    let item = getItemById(cartItems, payload);
+    let item = getItemById(cartItems, product);
     if (item) {
       item.quantity = item.quantity - 1;
       if (item.quantity == 0) {
         cartItems.splice(
           cartItems.findIndex(list => {
-            return list.id === payload;
+            return list.id === product;
           }),
           1
         );
@@ -59,11 +59,11 @@ export default {
     return state;
   },
 
-  removeItems(state, payload) {
+  removeItems(state, product) {
     let cartItems = state.cart;
     cartItems.splice(
       cartItems.findIndex(list => {
-        return list.id === payload;
+        return list.id === product;
       }),
       1
     );

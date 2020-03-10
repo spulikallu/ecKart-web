@@ -3,8 +3,8 @@ export default {
     context.commit('load', products);
   },
 
-  search(context, payload) {
-    context.commit('search', payload);
+  search(context, searchText) {
+    context.commit('search', searchText);
   },
 
   filter(context, filterBy) {
@@ -15,15 +15,15 @@ export default {
     context.commit('sort', sortby);
   },
 
-  addItem(context, payload) {
-    context.commit('addItem', payload);
+  addItem(context, product) {
+    context.commit('addItem', product);
   },
 
-  removeItem(context, payload) {
-    context.commit('removeItem', payload);
+  removeItem(context, product) {
+    context.commit('removeItem', product);
   },
 
-  removeItems(context, payload) {
-    context.commit('removeItems', payload);
+  removeItems(context, product) {
+    context.commit('removeItems', product);
   }
 };
