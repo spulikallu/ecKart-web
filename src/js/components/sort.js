@@ -28,6 +28,7 @@ export default class Sort extends Component {
       //document.getElementById(this.SORT_MODAL_CONTAINER).classList.remove('js-inline-sort');
       document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:none';
       qs(this.MODAL_CONTAINER).style = 'display:block';
+      document.getElementById(this.SORT_MODAL_CONTAINER).style = 'display:block';
     });
   }
 }

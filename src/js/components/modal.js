@@ -28,21 +28,31 @@ export default class Modal {
     setSortDefaults(sortElements, sortby);
 
     qs(self.SORT_CANCEL).addEventListener('click', function() {
-      setSortDefaults(sortElements, sortby);
+      setSortDefaults(sortElements, store.state.sortby);
+      store.dispatch('sort', qs('input[name="sortby"]:checked').value);
       document.getElementById(self.SORT_MODAL_CONTAINER).classList.remove('modal');
       qs(self.MODAL_CONTAINER).style = 'display:none';
+      document.getElementById(self.SORT_MODAL_CONTAINER).style = 'display:none';
     });
 
     qs(self.SORT_APPLY).addEventListener('click', function() {
       store.dispatch('sort', qs('input[name="sortby"]:checked').value);
       document.getElementById(self.SORT_MODAL_CONTAINER).classList.remove('modal');
       qs(self.MODAL_CONTAINER).style = 'display:none';
+      document.getElementById(self.SORT_MODAL_CONTAINER).style = 'display:none';
     });
 
     iterator(
       qsAll(self.SORT_OPTIONS),
       () => {
-        store.dispatch('sort', qs('input[name="sortby"]:checked').value);
+        if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 768) {
+          let sortby = qs('input[name="sortby"]:checked').value;
+          qs('label[name="priceHigh"]').classList.remove('active');
+          qs('label[name="priceLow"]').classList.remove('active');
+          qs('label[name="discount"]').classList.remove('active');
+          qs('label[name="' + sortby + '"]').classList.add('active');
+          store.dispatch('sort', sortby);
+        }
       },
       'click'
     );

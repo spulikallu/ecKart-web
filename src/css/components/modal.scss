@@ -4,7 +4,51 @@
     display: block;
   }
   #sort-modal {
-    display: block;
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+      div {
+        display: inline-block;
+      }
+
+      .sort-modal__sortby {
+        ul {
+          margin-top: 10px;
+          padding-left: 0;
+          margin-bottom: 20px;
+          li {
+            display: inline-block;
+            margin-left: 15px;
+
+            input[type='radio'] {
+              display: none;
+            }
+
+            label {
+              text-decoration: none;
+              cursor: pointer;
+              font-family: $font-medium;
+              font-size: $font-level4;
+              color: $color-light;
+
+              &.active {
+                color: $color-link;
+                border-bottom: 2px solid $color-link;
+              }
+            }
+          }
+        }
+      }
+    }
+    .modal-footer {
+      &__cancel,
+      &__apply {
+        display: block;
+        @include media-breakpoint-up(md) {
+          display: none;
+        }
+      }
+    }
   }
 
   .modal {
