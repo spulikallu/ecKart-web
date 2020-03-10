@@ -6,7 +6,7 @@ export default class Filter extends Component {
   constructor() {
     super({
       store,
-      element: document.querySelector('.js-filter-component')
+      element: qs('.js-filter-component')
     });
     this.FILTER_BTN = '.js-filter';
     this.APP_MODAL = 'app-modal';
