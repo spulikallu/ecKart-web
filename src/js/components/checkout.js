@@ -12,6 +12,7 @@ export default class Checkout extends Component {
     this.PLUS_ICON = '.js-item-plus';
     this.MINUS_ICON = '.js-item-minus';
     this.REMOVE_BTN = '.js-remove';
+    this.ITEM_ID = 'data-item-id';
   }
 
   getPriceDetails(cartList) {
@@ -117,7 +118,7 @@ export default class Checkout extends Component {
       iterator(
         qsAll(this.PLUS_ICON, self.element),
         item => {
-          store.dispatch('addItem', parseInt(item.getAttribute('data-item-id')));
+          store.dispatch('addItem', parseInt(item.getAttribute(this.ITEM_ID)));
         },
         'click'
       );
@@ -125,7 +126,7 @@ export default class Checkout extends Component {
       iterator(
         qsAll(this.MINUS_ICON, self.element),
         item => {
-          store.dispatch('removeItem', parseInt(item.getAttribute('data-item-id')));
+          store.dispatch('removeItem', parseInt(item.getAttribute(this.ITEM_ID)));
         },
         'click'
       );
@@ -133,7 +134,7 @@ export default class Checkout extends Component {
       iterator(
         qsAll(this.REMOVE_BTN, self.element),
         item => {
-          store.dispatch('removeItems', parseInt(item.getAttribute('data-item-id')));
+          store.dispatch('removeItems', parseInt(item.getAttribute(this.ITEM_ID)));
         },
         'click'
       );

@@ -1,3 +1,4 @@
+import { qs } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
 
@@ -5,8 +6,11 @@ export default class Search extends Component {
   constructor() {
     super({
       store,
-      element: document.querySelector('.js-search-component')
+      element: qs('.js-search-component')
     });
+
+    this.SEARCH_ICON = '.js-search';
+    this.SEARCH_TEXT = '.js-search-text';
   }
 
   render() {
@@ -17,8 +21,8 @@ export default class Search extends Component {
       <i class="fas fa-search js-search"></i>
     `;
 
-    self.element.querySelector('.js-search').addEventListener('click', () => {
-      store.dispatch('search', document.querySelector('.js-search-text').value);
+    qs(this.SEARCH_ICON, self.element).addEventListener('click', () => {
+      store.dispatch('search', qs(this.SEARCH_TEXT).value);
     });
   }
 }

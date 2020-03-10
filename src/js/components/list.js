@@ -10,6 +10,7 @@ export default class List extends Component {
     });
 
     this.ADD_TO_CART_BTN = '.js-add-to-cart';
+    this.ITEM_ID = 'data-item-id';
   }
 
   render() {
@@ -46,7 +47,7 @@ export default class List extends Component {
     iterator(
       qsAll(this.ADD_TO_CART_BTN, self.element),
       item => {
-        store.dispatch('addItem', parseInt(item.getAttribute('data-item-id')));
+        store.dispatch('addItem', parseInt(item.getAttribute(this.ITEM_ID)));
       },
       'click'
     );
