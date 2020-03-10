@@ -17,7 +17,10 @@ export default {
   filter(state, filterBy) {
     Object.assign(state.products, state.items);
     Object.assign(state, filterBy);
+    console.log(state.searchText);
+    state.products = applySearch(state.products, state.searchText);
     state.products = Object.assign([], applyFilter(state));
+    state.products = Object.assign(state.products, applySort(state.products, state.sortby));
     return state;
   },
 
