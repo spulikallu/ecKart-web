@@ -10,24 +10,23 @@ export default class Sort extends Component {
     });
 
     this.SORT_BTN = '.js-sort';
-    this.APP_MODAL = 'app-modal';
+    this.SORT_MODAL_CONTAINER = 'sort-modal';
     this.MODAL_CONTAINER = '.js-modal-container';
-    this.SORT_MODAL = '.js-sort-modal';
-    this.FILTER_MODAL = '.js-filter-modal';
+    this.FILTER_MODAL_CONTAINER = 'filter-modal';
   }
 
   render() {
     let self = this;
 
     self.element.innerHTML = `
-      <a href="javaScript:void(0)" class="js-sort"><i class="fas fa-sort"><span>Sort</span></Sort></i></a>
+      <a href="javaScript:void(0)" class="js-sort">
+      <i class="fas fa-sort"><span>Sort</span></Sort></i></a>
     `;
 
     qs(this.SORT_BTN).addEventListener('click', () => {
-      document.getElementById(this.APP_MODAL).style = 'display:block';
+      document.getElementById(this.SORT_MODAL_CONTAINER).classList.add('modal');
+      document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:none';
       qs(this.MODAL_CONTAINER).style = 'display:block';
-      qs(this.SORT_MODAL).style = 'display:block';
-      qs(this.FILTER_MODAL).style = 'display:none';
     });
   }
 }

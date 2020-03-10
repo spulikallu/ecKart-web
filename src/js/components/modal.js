@@ -1,11 +1,22 @@
+import { qs, qsAll } from '../helpers/utility.js';
 import store from '../store/index.js';
 export default class Modal {
+  constructor() {
+    this.SORT_MODAL_CONTAINER = 'sort-modal';
+    this.FILTER_MODAL_CONTAINER = 'filter-modal';
+    this.MODAL_CONTAINER = '.js-modal-container';
+    this.SORT_CANCEL = '#sort-modal .js-modal-cancel';
+    this.SORT_APPLY = '#sort-modal .js-modal-apply';
+    this.SORT_OPTIONS = 'input[name="sortby"]';
+  }
+
   init() {
-    let modal = document.getElementById('app-modal');
-    let sortElement = document.querySelectorAll('input[name="sortby"]');
-    let sortby = document.querySelector('input[name="sortby"]:checked').value;
-    let setSortDefaults = function(sortElement, sortby) {
-      sortElement.forEach(element => {
+    let self = this;
+    let sortElements = qsAll(this.SORT_OPTIONS);
+    let sortby = qs('input[name="sortby"]:checked').value;
+
+    let setSortDefaults = function(sortElements, sortby) {
+      sortElements.forEach(element => {
         if (element.value == sortby) {
           element.checked = true;
         } else {
@@ -14,30 +25,18 @@ export default class Modal {
       });
     };
 
-    setSortDefaults(sortElement, sortby);
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    };
+    setSortDefaults(sortElements, sortby);
 
-    document.querySelector('.js-modal-cancel').addEventListener('click', function() {
-      setSortDefaults(sortElement, sortby);
-      document.getElementById('app-modal').style = 'display:none';
+    qs(self.SORT_CANCEL).addEventListener('click', function() {
+      setSortDefaults(sortElements, sortby);
+      document.getElementById(self.SORT_MODAL_CONTAINER).classList.remove('modal');
+      qs(self.MODAL_CONTAINER).style = 'display:none';
     });
 
-    document.querySelector('.js-modal-apply').addEventListener('click', function() {
-      if (document.querySelector('.js-sort-modal').offsetParent) {
-        sortby = document.querySelector('input[name="sortby"]:checked').value;
-        store.dispatch('sort', document.querySelector('input[name="sortby"]:checked').value);
-      } else {
-        store.dispatch('filter', {
-          filterMin: parseInt(document.querySelector('.filter-modal__range-start span').innerHTML),
-          filterMax: parseInt(document.querySelector('.filter-modal__range-end span').innerHTML)
-        });
-      }
-
-      document.getElementById('app-modal').style = 'display:none';
+    qs(self.SORT_APPLY).addEventListener('click', function() {
+      store.dispatch('sort', qs('input[name="sortby"]:checked').value);
+      document.getElementById(self.SORT_MODAL_CONTAINER).classList.remove('modal');
+      qs(self.MODAL_CONTAINER).style = 'display:none';
     });
   }
 }

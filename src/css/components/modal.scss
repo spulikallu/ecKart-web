@@ -1,9 +1,12 @@
 .modal-container {
-  display: none;
-  .filter-modal,
-  .sort-modal {
-    display: none;
+  display: block;
+  #filter-modal {
+    display: block;
   }
+  #sort-modal {
+    display: block;
+  }
+
   .modal {
     display: block;
     position: fixed;
