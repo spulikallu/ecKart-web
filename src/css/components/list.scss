@@ -5,47 +5,6 @@
   }
   &__sort {
     flex-basis: 70%;
-
-    .sort-modal {
-      /*
-      &__sort-container {
-        display: none;
-        @include media-breakpoint-up(md) {
-          display: block;
-          flex-basis: 100%;
-        }
-
-        .sort-modal__sortby {
-          ul {
-            margin-top: 10px;
-            padding-left: 0;
-            margin-bottom: 20px;
-            li {
-              display: inline-block;
-              margin-right: 15px;
-
-              &:first-child {
-                font-family: $font-dark;
-                border-bottom: none;
-              }
-              a {
-                text-decoration: none;
-                cursor: pointer;
-                font-family: $font-medium;
-                font-size: $font-level5;
-                color: $color-light;
-
-                &.active {
-                  color: $color-link;
-                  border-bottom: 2px solid $color-link;
-                }
-              }
-            }
-          }
-        }
-      }
-      */
-    }
   }
 
   &__section {
@@ -108,9 +67,10 @@
         }
         h2 {
           font-family: $font-light;
-          font-size: $font-level3;
+          font-size: $font-level4;
           padding: 0 10px 10px 10px;
           margin: 0;
+          letter-spacing: 0.5px;
         }
       }
 

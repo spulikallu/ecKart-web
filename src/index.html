@@ -11,11 +11,16 @@
 
 <body>
     <main class="app-container">
+        <!--header-->
         <header class="header js-header-component">
 
         </header>
+        <!--app-container-->
         <div class="app-content">
+            <!--product-page-->
             <div class="js-product-page">
+
+                <!--products-sort-filter-control-->
                 <section class="products-control">
                     <div class="products-control__sort js-sort-component">
 
@@ -25,7 +30,7 @@
                     </div>
                 </section>
 
-
+                <!--products-list-view-->
                 <div class="products-list">
 
                     <aside class="products-list__filter">
@@ -60,43 +65,46 @@
                     </aside>
 
                     <div class="products-list__sort">
-                        <section class="modal-container js-modal-container">
-                            <div id="sort-modal">
 
-                                <div class="modal-content">
-
-                                    <div class="sort-modal js-sort-modal">
-                                        <div><h2>Sort Options</h2></div>
-                                        <div class="sort-modal__sortby">
-                                            <ul>
-                                                <li><input id="priceHigh" type="radio" name="sortby" value="priceHigh"
-                                                        checked></input>
-                                                    <span> <label class="active" name="priceHigh" for="priceHigh"> Price -- High Low </label> </span>
-                                                </li>
-                                                <li><input id="priceLow" type="radio" name="sortby"
-                                                        value="priceLow"></input>
-                                                    <span> <label for="priceLow" name="priceLow"> Price -- Low High </label> </span>
-                                                </li>
-                                                <li><input id="discount" type="radio" name="sortby"
-                                                        value="discount"></input>
-                                                    <span> <label name="discount" for="discount"> Discount </label> </span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                        <section id="sort-modal" class="sort-modal .js-sort-modal .js-modal-cancel">
+                            <div class="sort-modal__content">
+                              
+                                    <div class="sort-modal__title">
+                                        <h2>Sort Options</h2>
                                     </div>
-                                    <div class="modal-footer">
-                                        <div class="modal-footer__action">
-                                            <div class="modal-footer__cancel js-modal-cancel">
-                                                <button>Cancel</button>
-                                            </div>
-                                            <div class="modal-footer__apply js-modal-apply">
-                                                <button>Apply</button>
-                                            </div>
+                                    <div class="sort-modal__sortby">
+                                        <ul>
+                                            <li><input id="priceHigh" type="radio" name="sortby" value="priceHigh"
+                                                    checked></input>
+                                                <span> <label class="active" name="priceHigh" for="priceHigh"> Price
+                                                        -- High Low </label> </span>
+                                            </li>
+                                            <li><input id="priceLow" type="radio" name="sortby"
+                                                    value="priceLow"></input>
+                                                <span> <label for="priceLow" name="priceLow"> Price -- Low High
+                                                    </label> </span>
+                                            </li>
+                                            <li><input id="discount" type="radio" name="sortby"
+                                                    value="discount"></input>
+                                                <span> <label name="discount" for="discount"> Discount </label>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              
+                                <div class="sort-modal__footer">
+                                    <div class="sort-modal__action">
+                                        <div class="sort-modal__cancel js-modal-cancel">
+                                            <button>Cancel</button>
+                                        </div>
+                                        <div class="sort-modal__apply js-modal-apply">
+                                            <button>Apply</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
+
 
                         <section class="products-list__section js-product-list-component">
 
@@ -109,6 +117,7 @@
 
             </div>
 
+            <!--cart-page-->
             <div class="cart-page js-checkout-page">
 
             </div>

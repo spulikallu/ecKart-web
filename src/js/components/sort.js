@@ -11,7 +11,6 @@ export default class Sort extends Component {
 
     this.SORT_BTN = '.js-sort';
     this.SORT_MODAL_CONTAINER = 'sort-modal';
-    this.MODAL_CONTAINER = '.js-modal-container';
     this.FILTER_MODAL_CONTAINER = 'filter-modal';
   }
 
@@ -24,10 +23,10 @@ export default class Sort extends Component {
     `;
 
     qs(this.SORT_BTN).addEventListener('click', () => {
-      document.getElementById(this.SORT_MODAL_CONTAINER).classList.add('modal');
-      //document.getElementById(this.SORT_MODAL_CONTAINER).classList.remove('js-inline-sort');
-      document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:none';
-      qs(this.MODAL_CONTAINER).style = 'display:block';
+      let modalContainer = document.getElementById(this.SORT_MODAL_CONTAINER);
+      if (!modalContainer.classList.contains('helper-modal')) {
+        document.getElementById(this.SORT_MODAL_CONTAINER).classList.add('helper-modal');
+      }
       document.getElementById(this.SORT_MODAL_CONTAINER).style = 'display:block';
     });
   }
