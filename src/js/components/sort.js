@@ -25,6 +25,7 @@ export default class Sort extends Component {
 
     qs(this.SORT_BTN).addEventListener('click', () => {
       document.getElementById(this.SORT_MODAL_CONTAINER).classList.add('modal');
+      //document.getElementById(this.SORT_MODAL_CONTAINER).classList.remove('js-inline-sort');
       document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:none';
       qs(this.MODAL_CONTAINER).style = 'display:block';
     });

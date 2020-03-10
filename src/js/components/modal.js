@@ -1,4 +1,5 @@
-import { qs, qsAll } from '../helpers/utility.js';
+import { qs, qsAll, iterator } from '../helpers/utility.js';
+import { SORT_BY_HIGH_PRICE } from '../constants/strings.js';
 import store from '../store/index.js';
 export default class Modal {
   constructor() {
@@ -13,7 +14,7 @@ export default class Modal {
   init() {
     let self = this;
     let sortElements = qsAll(this.SORT_OPTIONS);
-    let sortby = qs('input[name="sortby"]:checked').value;
+    let sortby = SORT_BY_HIGH_PRICE;
 
     let setSortDefaults = function(sortElements, sortby) {
       sortElements.forEach(element => {
@@ -24,7 +25,6 @@ export default class Modal {
         }
       });
     };
-
     setSortDefaults(sortElements, sortby);
 
     qs(self.SORT_CANCEL).addEventListener('click', function() {
@@ -38,5 +38,13 @@ export default class Modal {
       document.getElementById(self.SORT_MODAL_CONTAINER).classList.remove('modal');
       qs(self.MODAL_CONTAINER).style = 'display:none';
     });
+
+    iterator(
+      qsAll(self.SORT_OPTIONS),
+      () => {
+        store.dispatch('sort', qs('input[name="sortby"]:checked').value);
+      },
+      'click'
+    );
   }
 }
