@@ -8,6 +8,7 @@ export default class Filter extends Component {
       store,
       element: qs('.js-filter-component')
     });
+
     this.FILTER_BTN = '.js-filter';
     this.APP_MODAL = 'app-modal';
     this.MODAL_CONTAINER = '.js-modal-container';

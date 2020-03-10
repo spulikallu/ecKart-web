@@ -8,6 +8,7 @@ export default class Checkout extends Component {
       store,
       element: qs('.js-checkout-page')
     });
+
     this.PLUS_ICON = '.js-item-plus';
     this.MINUS_ICON = '.js-item-minus';
     this.REMOVE_BTN = '.js-remove';
@@ -38,38 +39,38 @@ export default class Checkout extends Component {
           return (
             `
           <div class="cart__item">
-          <div class="cart__item-image">
-              <img src="${item.img_url}" alt="${item.name}"></img>
-          </div>
-          <div class="cart__item-content">
-              <h2 class="cart__item-name">
-                  ${item.name}
-              </h2>
-              <div class="cart__item-cost">
-                  <span class="cart__item-selling-price"><i class="fas fa-rupee-sign"></i>
-                  ${item.price - (item.price * item.discount) / 100}
-                  </span>
-                  <span class="cart__item-actual-price">${item.price}</span>
-                  <span class="cart__item-discount">${item.discount}% off</span>
-              </div>
-              <div class="cart__item-action">
-                  <div class="cart__item-minus js-item-minus"  data-item-id="` +
+            <div class="cart__item-image">
+                <img src="${item.img_url}" alt="${item.name}"></img>
+            </div>
+            <div class="cart__item-content">
+                <h2 class="cart__item-name">
+                    ${item.name}
+                </h2>
+                <div class="cart__item-cost">
+                    <span class="cart__item-selling-price"><i class="fas fa-rupee-sign"></i>
+                    ${item.price - (item.price * item.discount) / 100}
+                    </span>
+                    <span class="cart__item-actual-price">${item.price}</span>
+                    <span class="cart__item-discount">${item.discount}% off</span>
+                </div>
+                <div class="cart__item-action">
+                    <div class="cart__item-minus js-item-minus"  data-item-id="` +
             item.id +
             `">
-                  <i class="fa fa-minus" aria-hidden="true"></i> </div>
-                  <div class="cart__item-text"><input type="text" disabled value="${item.quantity}" maxlength="2"> </div>
-                  <div class="cart__item-plus js-item-plus" data-item-id="` +
+                    <i class="fa fa-minus" aria-hidden="true"></i> </div>
+                    <div class="cart__item-text"><input type="text" disabled value="${item.quantity}" maxlength="2"> </div>
+                    <div class="cart__item-plus js-item-plus" data-item-id="` +
             item.id +
             `"> 
-                  <i class="fa fa-plus" aria-hidden="true" ></i> </div>
-              </div>
-              <div class="cart__item-remove">
-                  <button class="js-remove" data-item-id="` +
+                    <i class="fa fa-plus" aria-hidden="true" ></i> </div>
+                </div>
+                <div class="cart__item-remove">
+                    <button class="js-remove" data-item-id="` +
             item.id +
             `">Remove</button>
-              </div>
-          </div>
-      </div>`
+                </div>
+            </div>
+        </div>`
           );
         })
         .join(' ') +

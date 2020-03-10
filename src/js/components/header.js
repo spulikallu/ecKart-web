@@ -24,10 +24,8 @@ export default class Header extends Component {
             <i class="fas fa-star"></i>
         </div>
         <div class="header__search js-search-component">
-
         </div>
-        <div class="header__cart js-cart-component">
-            
+        <div class="header__cart js-cart-component">            
         </div>
       </div>
       `;

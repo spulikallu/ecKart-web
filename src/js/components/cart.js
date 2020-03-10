@@ -8,6 +8,7 @@ export default class Checkout extends Component {
       store,
       element: qs('.js-cart-component')
     });
+
     this.CART_ICON = '.js-cart';
     this.CHECKOUT_VIEW = '.js-checkout-page';
     this.PRODUCTS_VIEW = '.js-product-page';
