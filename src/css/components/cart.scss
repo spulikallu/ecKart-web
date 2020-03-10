@@ -86,6 +86,7 @@
             border: none;
             font-family: $font-medium;
             font-size: $font-level6;
+            cursor: not-allowed;
             &:focus {
               outline: none;
             }
