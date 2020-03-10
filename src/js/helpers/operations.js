@@ -27,7 +27,7 @@ export function applySort(list, sortby) {
 export function applyFilter(list) {
   return list.products.filter(item => {
     let price = item.price - (item.price * item.discount) / 100;
-    return price > list.filterMin && price < list.filterMax;
+    return price >= list.filterMin && price <= list.filterMax;
   });
 }
 
