@@ -1,4 +1,6 @@
 import '../css/style.scss';
+import './helpers/dom-events.js';
+import './helpers/utility.js';
 import store from './store/index.js';
 import Header from './components/header.js';
 import Sort from './components/sort.js';
