@@ -19,7 +19,7 @@ export default class List extends Component {
       `    
     <section class="products">     
     ` +
-      store.state.ui
+      store.state.products
         .map(item => {
           return (
             ` 

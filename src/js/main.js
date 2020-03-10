@@ -1,6 +1,9 @@
 import '../css/style.scss';
 import './helpers/dom-events.js';
 import './helpers/utility.js';
+import './helpers/operations.js';
+import './constants/strings.js';
+
 import store from './store/index.js';
 import Header from './components/header.js';
 import Sort from './components/sort.js';
@@ -16,7 +19,9 @@ fetch('/data/products.json')
   })
   .then(data => {
     if (data) {
-      store.dispatch('load', data);
+      console.log('logging returned state');
+      console.log(store.dispatch('load', data));
+      // store.dispatch('sort', 'priceHigh');
     }
 
     const headerComponent = new Header();

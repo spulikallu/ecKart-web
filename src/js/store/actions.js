@@ -1,18 +1,18 @@
 export default {
-  load(context, payload) {
-    context.commit('load', payload);
+  load(context, products) {
+    context.commit('load', products);
   },
 
   search(context, payload) {
     context.commit('search', payload);
   },
 
-  sort(context, payload) {
-    context.commit('sort', payload);
+  filter(context, filterBy) {
+    context.commit('filter', filterBy);
   },
 
-  filter(context, payload) {
-    context.commit('filter', payload);
+  sort(context, sortby) {
+    context.commit('sort', sortby);
   },
 
   addItem(context, payload) {
