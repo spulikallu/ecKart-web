@@ -47,6 +47,7 @@ export default class Checkout extends Component {
                 <h2 class="cart__item-name">
                     ${item.name}
                 </h2>
+                <div class="cart__item--wrapper">
                 <div class="cart__item-cost">
                     <span class="cart__item-selling-price"><i class="fas fa-rupee-sign"></i>
                     ${item.price - (item.price * item.discount) / 100}
@@ -64,8 +65,15 @@ export default class Checkout extends Component {
             item.id +
             `"> 
                     <i class="fa fa-plus" aria-hidden="true" ></i> </div>
+ 
                 </div>
-                <div class="cart__item-remove">
+                <div class="cart__item-remove helper-display-block-md">
+                <button class="js-remove" data-item-id="` +
+            item.id +
+            `">Remove</button>
+            </div>
+                </div>
+                <div class="cart__item-remove helper-display-block-sm ">
                     <button class="js-remove" data-item-id="` +
             item.id +
             `">Remove</button>

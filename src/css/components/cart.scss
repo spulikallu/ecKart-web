@@ -1,8 +1,28 @@
 .cart-page {
   display: none;
   .cart {
+    flex-grow: 1;
     @include media-breakpoint-up(md) {
-      flex-grow: 1;
+      flex-grow: 2;
+    }
+
+    &__item--wrapper {
+      display: block;
+
+      @include media-breakpoint-up(md) {
+        display: flex;
+        .cart__item-cost {
+          flex-grow: 1;
+        }
+        .cart__item-action {
+          flex-grow: 1;
+        }
+
+        .cart__item-remove {
+          flex-grow: 1;
+          margin-top: 10px;
+        }
+      }
     }
     &__item {
       display: flex;
@@ -21,6 +41,7 @@
       }
 
       &-cost {
+        width: 150px;
         font-family: $font-medium;
         margin-top: 10px;
         letter-spacing: 0.2px;
@@ -114,6 +135,7 @@
   }
 
   .price {
+    flex-grow: 1;
     @include media-breakpoint-up(md) {
       flex-grow: 1;
     }

@@ -26,7 +26,11 @@ export default class Checkout extends Component {
       `;
 
     qs(this.CART_ICON, self.element).addEventListener('click', () => {
-      qs(this.CHECKOUT_VIEW).style = 'display:block';
+      if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 768) {
+        qs(this.CHECKOUT_VIEW).style = 'display:flex';
+      } else {
+        qs(this.CHECKOUT_VIEW).style = 'display:block';
+      }
       qs(this.PRODUCTS_VIEW).style = 'display:none';
     });
   }
