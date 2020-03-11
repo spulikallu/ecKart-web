@@ -6,8 +6,6 @@ window.onresize = function() {
   const CHECKOUT_VIEW = '.js-checkout-page';
   const PRODUCTS_VIEW = '.js-product-page';
 
-  console.log(getViewPortWidth());
-
   if (getViewPortWidth() > 768) {
     qs(SORT_MODAL_CONTAINER).style = 'display:block';
     qs(FILTER_MODAL_CONTAINER).style = 'display:block';

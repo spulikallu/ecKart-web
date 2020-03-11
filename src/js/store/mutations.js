@@ -11,6 +11,8 @@ export default {
     state.searchText = searchText;
     Object.assign(state.products, state.items);
     state.products = Object.assign([], applySearch(state.products, searchText));
+    state.products = Object.assign([], applyFilter(state));
+    state.products = Object.assign([], applySort(state.products, state.sortby));
     return state;
   },
 

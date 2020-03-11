@@ -1,4 +1,4 @@
-import { qs, qsAll, iterator } from '../helpers/utility.js';
+import { qs, qsAll, iterator, getViewPortWidth } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
 import noUiSlider from 'nouislider/distribute/nouislider.js';
@@ -54,7 +54,7 @@ export default class Filter extends Component {
           filterMin: parseInt(qs(self.FILTER_RANGE_START).innerHTML),
           filterMax: parseInt(qs(self.FILTER_RANGE_END).innerHTML)
         });
-        if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 768) {
+        if (getViewPortWidth() < 768) {
           qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
         }
       },

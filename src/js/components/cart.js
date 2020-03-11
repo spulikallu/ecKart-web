@@ -1,4 +1,4 @@
-import { qs } from '../helpers/utility.js';
+import { qs, getViewPortWidth } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
 
@@ -26,7 +26,7 @@ export default class Checkout extends Component {
       `;
 
     qs(this.CART_ICON, self.element).addEventListener('click', () => {
-      if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 768) {
+      if (getViewPortWidth() > 768) {
         qs(this.CHECKOUT_VIEW).style = 'display:flex';
       } else {
         qs(this.CHECKOUT_VIEW).style = 'display:block';

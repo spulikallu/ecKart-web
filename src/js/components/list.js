@@ -24,7 +24,7 @@ export default class List extends Component {
           return (
             ` 
             <div class="products__item">
-                <img src="${item.img_url}">
+                <img src="${item.img_url}" alt="${item.name}">
                 <h2>${item.name}</h2>
                 <div class="products__cost">
                     <span class="products__selling-price"><i class="fas fa-rupee-sign"></i>

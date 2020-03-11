@@ -1,4 +1,4 @@
-import { qs, qsAll, iterator } from '../helpers/utility.js';
+import { qs, qsAll, iterator, getViewPortWidth } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
 
@@ -57,7 +57,7 @@ export default class Sort extends Component {
     iterator(
       qsAll(self.SORT_OPTIONS),
       () => {
-        if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 768) {
+        if (getViewPortWidth() > 768) {
           let sortby = qs(self.SORT_OPTION_SELECTED).value;
           setSortLinks(sortby);
         }
