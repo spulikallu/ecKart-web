@@ -22,7 +22,6 @@ export default class Sort extends Component {
 
   init() {
     let self = this;
-    let sortElements = qsAll(this.SORT_OPTIONS);
 
     let setSortLinks = function(sortby) {
       iterator(qsAll(self.SORT_LABELS), item => {
@@ -33,7 +32,7 @@ export default class Sort extends Component {
       store.dispatch('sort', sortby);
     };
 
-    let setSortDefaults = function(sortElements, sortby) {
+    self.setSortDefaults = function(sortElements, sortby) {
       sortElements.forEach(element => {
         if (element.value == sortby) {
           element.checked = true;
@@ -44,8 +43,6 @@ export default class Sort extends Component {
     };
 
     qs(self.SORT_CANCEL).addEventListener('click', function() {
-      setSortDefaults(sortElements, store.state.sortby);
-
       store.dispatch('sort', qs(self.SORT_OPTION_SELECTED).value);
       setSortLinks(store.state.sortby);
       qs(self.SORT_MODAL_CONTAINER).style = 'display:none';
@@ -78,6 +75,7 @@ export default class Sort extends Component {
     `;
 
     qs(this.SORT_BTN).addEventListener('click', () => {
+      self.setSortDefaults(qsAll(this.SORT_OPTIONS), store.state.sortby);
       let modalContainer = qs(this.SORT_MODAL_CONTAINER);
       if (!modalContainer.classList.contains(self.HELPER_MODAL)) {
         modalContainer.classList.add(self.HELPER_MODAL);

@@ -38,13 +38,12 @@ export default class Filter extends Component {
         </div>`;
     });
 
-    let setFilterDefaults = function(filterMin, filterMax) {
+    self.setFilterDefaults = function(filterMin, filterMax) {
       let stepElement = qs(self.FILTER_SLIDER_STEP);
       stepElement.noUiSlider.set([filterMin, filterMax]);
     };
 
     qs(self.FILTER_CANCEL).addEventListener('click', function() {
-      setFilterDefaults(store.state.filterMin, store.state.filterMax);
       qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
     });
 
@@ -70,6 +69,8 @@ export default class Filter extends Component {
     `;
 
     qs(this.FILTER_BTN).addEventListener('click', () => {
+      self.setFilterDefaults(store.state.filterMin, store.state.filterMax);
+
       let modalContainer = qs(this.FILTER_MODAL_CONTAINER);
       if (!modalContainer.classList.contains(this.HELPER_MODAL)) {
         modalContainer.classList.add(this.HELPER_MODAL);
