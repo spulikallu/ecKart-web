@@ -47,6 +47,7 @@ export default class Filter extends Component {
     qs(self.FILTER_CANCEL).addEventListener('click', function() {
       let modalContainer = qs(self.FILTER_MODAL_CONTAINER);
       modalContainer.setAttribute(self.IS_MODAL_OPEN, false);
+      self.setFilterDefaults(store.state.filterMin, store.state.filterMax);
       modalContainer.style = 'display:none';
     });
 
