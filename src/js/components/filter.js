@@ -10,10 +10,7 @@ export default class Filter extends Component {
     });
 
     this.FILTER_BTN = '.js-filter';
-    this.APP_MODAL = 'app-modal';
-    this.MODAL_CONTAINER = '.js-modal-container';
-    this.SORT_MODAL = '.js-sort-modal';
-    this.FILTER_MODAL = '.js-filter-modal';
+    this.FILTER_MODAL_CONTAINER = 'filter-modal';
   }
 
   render() {
@@ -23,10 +20,11 @@ export default class Filter extends Component {
     `;
 
     qs(this.FILTER_BTN).addEventListener('click', () => {
-      document.getElementById(this.APP_MODAL).style = 'display:block';
-      qs(this.MODAL_CONTAINER).style = 'display:block';
-      qs(this.SORT_MODAL).style = 'display:none';
-      qs(this.FILTER_MODAL).style = 'display:block';
+      let modalContainer = document.getElementById(this.FILTER_MODAL_CONTAINER);
+      if (!modalContainer.classList.contains('helper-modal')) {
+        document.getElementById(this.FILTER_MODAL_CONTAINER).classList.add('helper-modal');
+      }
+      document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:block';
     });
   }
 }

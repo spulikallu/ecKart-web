@@ -1,9 +1,30 @@
 .filter-modal {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
   h2 {
     padding: 10px;
     margin: 0;
     font-family: $font-dark;
     font-size: $font-level4;
+  }
+
+  &__content {
+    background-color: $color-white;
+    @include media-breakpoint-up(md) {
+      border: none;
+      background-color: transparent;
+      display: block;
+    }
+    margin: auto;
+    @include media-breakpoint-up(md) {
+      margin: 0 auto;
+      margin-top: 10px;
+      width: 80%;
+    }
+    border: 1px solid $color-medium-border;
+    width: 80%;
   }
 
   &__range {
@@ -17,8 +38,49 @@
     }
   }
 
+  &__footer {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &__action {
+    display: flex;
+    border-top: 1px solid $color-border;
+  }
+
+  &__cancel,
+  &__apply {
+    display: block;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+
+    button {
+      background-color: none;
+      border: none;
+      font-family: $font-medium;
+      color: $color-link;
+      font-size: $font-level4;
+      &:focus {
+        outline: none;
+      }
+      cursor: pointer;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__cancel {
+    border-right: 1px solid $color-border;
+  }
+
   &__step-value {
     margin: 30px 10px 10px 10px;
+    @include media-breakpoint-up(md) {
+      margin: 10px;
+    }
     font-family: $font-medium;
     font-size: $font-level6;
     color: $color-light;
@@ -61,6 +123,23 @@
       &:before,
       &:after {
         content: none;
+      }
+    }
+  }
+
+  &__apply--md {
+    text-align: center;
+    margin-top: -20px;
+    button {
+      background-color: $color-primary;
+      color: $color-white;
+      padding: 5px 30px;
+      border-radius: 20px;
+      font-family: $font-medium;
+      font-size: $font-level5;
+      cursor: pointer;
+      &:focus {
+        outline: none;
       }
     }
   }

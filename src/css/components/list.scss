@@ -1,7 +1,13 @@
 .products-list {
-  display: flex;
+  display: block;
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
   &__filter {
     flex-basis: 20%;
+    @include media-breakpoint-up(md) {
+      border-right: 2px solid $color-border;
+    }
   }
   &__sort {
     flex-basis: 70%;
@@ -9,40 +15,6 @@
 
   &__section {
     display: flex;
-    /*
-    .filters {
-      display: none;
-      @include media-breakpoint-up(md) {
-        display: none;
-        flex-basis: 25%;
-        border-right: 2px solid $color-border;
-      }
-      .filter-modal__step-value {
-        margin: 10px;
-      }
-      .filter-modal__range {
-        text-align: center;
-        p {
-          margin-top: 5px;
-          font-size: $font-small;
-          font-family: $font-medium;
-        }
-        button {
-          background-color: $color-primary;
-          color: $color-white;
-          padding: 5px 30px;
-          border-radius: 20px;
-          font-family: $font-medium;
-          font-size: $font-level5;
-          cursor: pointer;
-          &:focus {
-            outline: none;
-          }
-        }
-      }
-    }
-
-    */
 
     .products {
       display: flex;
@@ -54,6 +26,7 @@
 
       &__item {
         flex-basis: 50%;
+        padding: 10px 0 10px 15px;
         @include media-breakpoint-up(md) {
           flex-basis: 20%;
         }
@@ -63,12 +36,11 @@
         }
         img {
           width: 100%;
-          padding: 10px 10px 0 10px;
         }
         h2 {
           font-family: $font-light;
           font-size: $font-level4;
-          padding: 0 10px 10px 10px;
+          padding: 0 10px 10px 0;
           margin: 0;
           letter-spacing: 0.5px;
         }
@@ -76,7 +48,7 @@
 
       &__cost {
         font-family: $font-medium;
-        padding: 0 10px;
+        padding: 0;
         letter-spacing: 0.2px;
         font-size: $font-level5;
         span {
@@ -95,6 +67,7 @@
         color: $color-info;
         font-size: $font-level5;
         font-family: $font-dark;
+        width: 50px;
       }
 
       &__add {
@@ -121,6 +94,9 @@
 
 .products-control {
   display: flex;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
   height: 50px;
 
   &__sort,

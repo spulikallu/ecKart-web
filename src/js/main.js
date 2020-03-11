@@ -2,6 +2,7 @@ import '../css/style.scss';
 import './helpers/dom-events.js';
 import './helpers/utility.js';
 import './helpers/operations.js';
+import './helpers/window.js';
 import './constants/strings.js';
 
 import store from './store/index.js';

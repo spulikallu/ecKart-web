@@ -22,3 +22,24 @@
     background-color: transparent;
   }
 }
+
+.helper-display-inline-block-md {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
+}
+
+.helper-display-block-md {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.helper-display-block-sm {
+  display: block;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

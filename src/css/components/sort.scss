@@ -4,13 +4,6 @@
     display: block;
   }
 
-  &__title,
-  &__sortby {
-    @include media-breakpoint-up(md) {
-      display: inline-block;
-    }
-  }
-
   &__content {
     background-color: $color-white;
     @include media-breakpoint-up(md) {
@@ -72,6 +65,9 @@
   }
 
   &__sortby {
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
     ul {
       list-style-type: none;
       @include media-breakpoint-up(md) {

@@ -11,7 +11,6 @@ export default class Sort extends Component {
 
     this.SORT_BTN = '.js-sort';
     this.SORT_MODAL_CONTAINER = 'sort-modal';
-    this.FILTER_MODAL_CONTAINER = 'filter-modal';
   }
 
   render() {
@@ -27,6 +26,7 @@ export default class Sort extends Component {
       if (!modalContainer.classList.contains('helper-modal')) {
         document.getElementById(this.SORT_MODAL_CONTAINER).classList.add('helper-modal');
       }
+
       document.getElementById(this.SORT_MODAL_CONTAINER).style = 'display:block';
     });
   }
