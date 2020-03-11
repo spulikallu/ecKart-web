@@ -1,4 +1,62 @@
 .sort-modal {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+
+  &__content {
+    background-color: $color-white;
+    @include media-breakpoint-up(md) {
+      border: none;
+      background-color: transparent;
+    }
+    margin: auto;
+    @include media-breakpoint-up(md) {
+      margin: 0;
+      margin-top: 10px;
+    }
+    border: 1px solid $color-medium-border;
+    width: 80%;
+  }
+
+  &__footer {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &__action {
+    display: flex;
+    border-top: 1px solid $color-border;
+  }
+
+  &__cancel,
+  &__apply {
+    display: block;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+
+    button {
+      background-color: none;
+      border: none;
+      font-family: $font-medium;
+      color: $color-link;
+      font-size: $font-level4;
+      &:focus {
+        outline: none;
+      }
+      cursor: pointer;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+  }
+
+  &__cancel {
+    border-right: 1px solid $color-border;
+  }
+
   h2 {
     padding: 10px;
     margin: 0;
@@ -7,10 +65,40 @@
   }
 
   &__sortby {
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
     ul {
       list-style-type: none;
+      @include media-breakpoint-up(md) {
+        margin-top: 10px;
+        padding-left: 0;
+        margin-bottom: 20px;
+      }
+
       li {
         margin-bottom: 5px;
+        @include media-breakpoint-up(md) {
+          display: inline-block;
+          margin-left: 15px;
+
+          input[type='radio'] {
+            display: none;
+          }
+
+          label {
+            text-decoration: none;
+            cursor: pointer;
+            font-family: $font-medium;
+            font-size: $font-level4;
+            color: $color-light;
+
+            &.active {
+              color: $color-link;
+              border-bottom: 2px solid $color-link;
+            }
+          }
+        }
         span {
           margin-left: 10px;
           font-family: $font-medium;
@@ -20,6 +108,9 @@
         }
       }
       input[type='radio'] {
+        cursor: pointer;
+      }
+      label {
         cursor: pointer;
       }
     }

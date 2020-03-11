@@ -1,3 +1,4 @@
+import { qs } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
 import Search from '../components/search.js';
@@ -7,8 +8,12 @@ export default class Header extends Component {
   constructor() {
     super({
       store,
-      element: document.querySelector('.js-header-component')
+      element: qs('.js-header-component')
     });
+
+    this.LOGO = '.js-logo';
+    this.CART_VIEW = '.js-checkout-page';
+    this.PRODUCT_VIEW = '.js-product-page';
   }
 
   render() {
@@ -19,10 +24,8 @@ export default class Header extends Component {
             <i class="fas fa-star"></i>
         </div>
         <div class="header__search js-search-component">
-
         </div>
-        <div class="header__cart js-cart-component">
-            
+        <div class="header__cart js-cart-component">            
         </div>
       </div>
       `;
@@ -32,9 +35,9 @@ export default class Header extends Component {
       new Cart().render();
     });
 
-    self.element.querySelector('.js-logo').addEventListener('click', () => {
-      document.querySelector('.js-checkout-page').style = 'display:none';
-      document.querySelector('.js-product-page').style = 'display:block';
+    qs(this.LOGO, self.element).addEventListener('click', () => {
+      qs(this.CART_VIEW).style = 'display:none';
+      qs(this.PRODUCT_VIEW).style = 'display:block';
     });
   }
 }

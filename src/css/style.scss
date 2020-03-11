@@ -4,12 +4,12 @@
 @import './core/media';
 @import './core/fonts';
 @import './core/base';
+@import './core/helper';
 
 @import './components/main';
 @import './components/header';
 @import './components/list';
 @import './components/footer';
-@import './components/modal';
 @import './components/filter';
 @import './components/sort';
 @import './components/cart';

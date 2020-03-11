@@ -1,0 +1,45 @@
+.helper-modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $color-overlay;
+  @include media-breakpoint-up(md) {
+    display: block;
+    position: relative;
+    z-index: 0;
+    padding-top: 0;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    background-color: transparent;
+  }
+}
+
+.helper-display-inline-block-md {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
+}
+
+.helper-display-block-md {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.helper-display-block-sm {
+  display: block;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

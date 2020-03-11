@@ -1,29 +1,29 @@
 export default {
-  load(context, payload) {
-    context.commit('load', payload);
+  load(context, products) {
+    context.commit('load', products);
   },
 
-  search(context, payload) {
-    context.commit('search', payload);
+  search(context, searchText) {
+    context.commit('search', searchText);
   },
 
-  sort(context, payload) {
-    context.commit('sort', payload);
+  filter(context, filterBy) {
+    context.commit('filter', filterBy);
   },
 
-  filter(context, payload) {
-    context.commit('filter', payload);
+  sort(context, sortby) {
+    context.commit('sort', sortby);
   },
 
-  addItem(context, payload) {
-    context.commit('addItem', payload);
+  addItem(context, product) {
+    context.commit('addItem', product);
   },
 
-  removeItem(context, payload) {
-    context.commit('removeItem', payload);
+  removeItem(context, product) {
+    context.commit('removeItem', product);
   },
 
-  removeItems(context, payload) {
-    context.commit('removeItems', payload);
+  removeItems(context, product) {
+    context.commit('removeItems', product);
   }
 };
