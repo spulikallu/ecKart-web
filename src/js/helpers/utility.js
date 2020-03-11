@@ -24,3 +24,7 @@ export function iterator(ele, callback, eventName) {
     callback(element);
   });
 }
+
+export function getViewPortWidth() {
+  return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+}

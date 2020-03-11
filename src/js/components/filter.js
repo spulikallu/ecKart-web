@@ -12,11 +12,11 @@ export default class Filter extends Component {
     });
 
     this.FILTER_BTN = '.js-filter';
-    this.FILTER_MODAL_CONTAINER = 'filter-modal';
+    this.FILTER_MODAL_CONTAINER = '#filter-modal';
     this.FILTER_CANCEL = '#filter-modal .js-modal-cancel';
     this.FILTER_APPLY = '#filter-modal .js-modal-apply';
-    this.FILTER_SLIDER_STEP = 'slider-non-linear-step';
-    this.FILTER_SLIDER_STEP_VALUE = 'slider-non-linear-step-value';
+    this.FILTER_SLIDER_STEP = '#slider-non-linear-step';
+    this.FILTER_SLIDER_STEP_VALUE = '#slider-non-linear-step-value';
     this.HELPER_MODAL = 'helper-modal';
     this.FILTER_RANGE_START = '.filter-modal__range-start span';
     this.FILTER_RANGE_END = '.filter-modal__range-end span';
@@ -24,8 +24,8 @@ export default class Filter extends Component {
   init() {
     let self = this;
 
-    let stepElement = document.getElementById(this.FILTER_SLIDER_STEP);
-    let stepValue = document.getElementById(this.FILTER_SLIDER_STEP_VALUE);
+    let stepElement = qs(this.FILTER_SLIDER_STEP);
+    let stepValue = qs(this.FILTER_SLIDER_STEP_VALUE);
     noUiSlider.create(stepElement, SLIDER_DEFAULTS);
 
     stepElement.noUiSlider.on('update', function(values) {
@@ -39,13 +39,13 @@ export default class Filter extends Component {
     });
 
     let setFilterDefaults = function(filterMin, filterMax) {
-      let stepElement = document.getElementById(self.FILTER_SLIDER_STEP);
+      let stepElement = qs(self.FILTER_SLIDER_STEP);
       stepElement.noUiSlider.set([filterMin, filterMax]);
     };
 
     qs(self.FILTER_CANCEL).addEventListener('click', function() {
       setFilterDefaults(store.state.filterMin, store.state.filterMax);
-      document.getElementById(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+      qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
     });
 
     iterator(
@@ -56,7 +56,7 @@ export default class Filter extends Component {
           filterMax: parseInt(qs(self.FILTER_RANGE_END).innerHTML)
         });
         if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 768) {
-          document.getElementById(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+          qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
         }
       },
       'click'
@@ -70,11 +70,11 @@ export default class Filter extends Component {
     `;
 
     qs(this.FILTER_BTN).addEventListener('click', () => {
-      let modalContainer = document.getElementById(this.FILTER_MODAL_CONTAINER);
+      let modalContainer = qs(this.FILTER_MODAL_CONTAINER);
       if (!modalContainer.classList.contains(this.HELPER_MODAL)) {
-        document.getElementById(this.FILTER_MODAL_CONTAINER).classList.add(this.HELPER_MODAL);
+        modalContainer.classList.add(this.HELPER_MODAL);
       }
-      document.getElementById(this.FILTER_MODAL_CONTAINER).style = 'display:block';
+      modalContainer.style = 'display:block';
     });
   }
 }

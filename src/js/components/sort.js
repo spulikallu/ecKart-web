@@ -10,7 +10,7 @@ export default class Sort extends Component {
     });
 
     this.SORT_BTN = '.js-sort';
-    this.SORT_MODAL_CONTAINER = 'sort-modal';
+    this.SORT_MODAL_CONTAINER = '#sort-modal';
     this.SORT_CANCEL = '#sort-modal .js-modal-cancel';
     this.SORT_APPLY = '#sort-modal .js-modal-apply';
     this.SORT_OPTIONS = 'input[name="sortby"]';
@@ -48,13 +48,13 @@ export default class Sort extends Component {
 
       store.dispatch('sort', qs(self.SORT_OPTION_SELECTED).value);
       setSortLinks(store.state.sortby);
-      document.getElementById(self.SORT_MODAL_CONTAINER).style = 'display:none';
+      qs(self.SORT_MODAL_CONTAINER).style = 'display:none';
     });
 
     qs(self.SORT_APPLY).addEventListener('click', function() {
       store.dispatch('sort', qs(self.SORT_OPTION_SELECTED).value);
       setSortLinks(store.state.sortby);
-      document.getElementById(self.SORT_MODAL_CONTAINER).style = 'display:none';
+      qs(self.SORT_MODAL_CONTAINER).style = 'display:none';
     });
 
     iterator(
@@ -78,12 +78,11 @@ export default class Sort extends Component {
     `;
 
     qs(this.SORT_BTN).addEventListener('click', () => {
-      let modalContainer = document.getElementById(this.SORT_MODAL_CONTAINER);
+      let modalContainer = qs(this.SORT_MODAL_CONTAINER);
       if (!modalContainer.classList.contains(self.HELPER_MODAL)) {
-        document.getElementById(this.SORT_MODAL_CONTAINER).classList.add(self.HELPER_MODAL);
+        modalContainer.classList.add(self.HELPER_MODAL);
       }
-
-      document.getElementById(this.SORT_MODAL_CONTAINER).style = 'display:block';
+      modalContainer.style = 'display:block';
     });
   }
 }
