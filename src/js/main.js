@@ -11,8 +11,6 @@ import Sort from './components/sort.js';
 import Filter from './components/filter.js';
 import List from './components/list.js';
 import Checkout from './components/checkout.js';
-import Modal from './components/modal.js';
-import Slider from './components/slider.js';
 
 fetch('/data/products.json')
   .then(response => {
@@ -27,15 +25,12 @@ fetch('/data/products.json')
     headerComponent.render();
     const sortComponent = new Sort();
     sortComponent.render();
+    sortComponent.init();
     const filterComponent = new Filter();
     filterComponent.render();
+    filterComponent.init();
     const listComponent = new List();
     listComponent.render();
     const checkoutComponent = new Checkout();
     checkoutComponent.render();
-    new Modal().init();
-    new Slider().init(
-      document.getElementById('slider-non-linear-step'),
-      document.getElementById('slider-non-linear-step-value')
-    );
   });

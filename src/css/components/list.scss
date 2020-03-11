@@ -51,10 +51,16 @@
         padding: 0;
         letter-spacing: 0.2px;
         font-size: $font-level5;
-        span {
+
+        span:nth-child(2) {
           display: inline-block;
           padding-right: 5px;
         }
+      }
+
+      &__selling-price {
+        width: 50px;
+        display: inline-block;
       }
 
       &__actual-price {
@@ -67,6 +73,7 @@
         color: $color-info;
         font-size: $font-level5;
         font-family: $font-dark;
+        display: inline-block;
         width: 50px;
       }
 
