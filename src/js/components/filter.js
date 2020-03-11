@@ -20,6 +20,7 @@ export default class Filter extends Component {
     this.HELPER_MODAL = 'helper-modal';
     this.FILTER_RANGE_START = '.filter-modal__range-start span';
     this.FILTER_RANGE_END = '.filter-modal__range-end span';
+    this.IS_MODAL_OPEN = 'data-modal-open';
   }
   init() {
     let self = this;
@@ -44,7 +45,9 @@ export default class Filter extends Component {
     };
 
     qs(self.FILTER_CANCEL).addEventListener('click', function() {
-      qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+      let modalContainer = qs(self.FILTER_MODAL_CONTAINER);
+      modalContainer.setAttribute(self.IS_MODAL_OPEN, false);
+      modalContainer.style = 'display:none';
     });
 
     iterator(
@@ -55,7 +58,9 @@ export default class Filter extends Component {
           filterMax: parseInt(qs(self.FILTER_RANGE_END).innerHTML)
         });
         if (getViewPortWidth() < 768) {
-          qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+          let modalContainer = qs(self.FILTER_MODAL_CONTAINER);
+          modalContainer.setAttribute(self.IS_MODAL_OPEN, false);
+          modalContainer.style = 'display:none';
         }
       },
       'click'
@@ -75,6 +80,7 @@ export default class Filter extends Component {
       if (!modalContainer.classList.contains(this.HELPER_MODAL)) {
         modalContainer.classList.add(this.HELPER_MODAL);
       }
+      modalContainer.setAttribute('data-modal-open', true);
       modalContainer.style = 'display:block';
     });
   }
