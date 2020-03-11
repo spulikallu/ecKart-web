@@ -1,26 +1,81 @@
+import { qs, qsAll, iterator, getViewPortWidth } from '../helpers/utility.js';
 import Component from '../core/component.js';
 import store from '../store/index.js';
+import noUiSlider from 'nouislider/distribute/nouislider.js';
+import { SLIDER_DEFAULTS } from '../constants/strings.js';
 
 export default class Filter extends Component {
   constructor() {
     super({
       store,
-      element: document.querySelector('.js-filter-component')
+      element: qs('.js-filter-component')
     });
+
+    this.FILTER_BTN = '.js-filter';
+    this.FILTER_MODAL_CONTAINER = '#filter-modal';
+    this.FILTER_CANCEL = '#filter-modal .js-modal-cancel';
+    this.FILTER_APPLY = '#filter-modal .js-modal-apply';
+    this.FILTER_SLIDER_STEP = '#slider-non-linear-step';
+    this.FILTER_SLIDER_STEP_VALUE = '#slider-non-linear-step-value';
+    this.HELPER_MODAL = 'helper-modal';
+    this.FILTER_RANGE_START = '.filter-modal__range-start span';
+    this.FILTER_RANGE_END = '.filter-modal__range-end span';
+  }
+  init() {
+    let self = this;
+
+    let stepElement = qs(this.FILTER_SLIDER_STEP);
+    let stepValue = qs(this.FILTER_SLIDER_STEP_VALUE);
+    noUiSlider.create(stepElement, SLIDER_DEFAULTS);
+
+    stepElement.noUiSlider.on('update', function(values) {
+      stepValue.innerHTML = `
+        <div class='filter-modal__range-start'>
+          <i class="fas fa-rupee-sign"></i><span>${parseInt(values[0])}</span>
+        </div>
+        <div class='filter-modal__range-end'>
+          <i class="fas fa-rupee-sign"></i><span>${parseInt(values[1])}</span>
+        </div>`;
+    });
+
+    self.setFilterDefaults = function(filterMin, filterMax) {
+      let stepElement = qs(self.FILTER_SLIDER_STEP);
+      stepElement.noUiSlider.set([filterMin, filterMax]);
+    };
+
+    qs(self.FILTER_CANCEL).addEventListener('click', function() {
+      qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+    });
+
+    iterator(
+      qsAll(this.FILTER_APPLY),
+      () => {
+        store.dispatch('filter', {
+          filterMin: parseInt(qs(self.FILTER_RANGE_START).innerHTML),
+          filterMax: parseInt(qs(self.FILTER_RANGE_END).innerHTML)
+        });
+        if (getViewPortWidth() < 768) {
+          qs(self.FILTER_MODAL_CONTAINER).style = 'display:none';
+        }
+      },
+      'click'
+    );
   }
 
   render() {
     let self = this;
-
     self.element.innerHTML = `
       <a href="javascript:void(0)" class="js-filter"><i class="fas fa-filter"><span>Filter</span></i></a>
     `;
 
-    self.element.querySelector('.js-filter').addEventListener('click', () => {
-      document.getElementById('app-modal').style = 'display:block';
-      document.querySelector('.js-modal-container').style = 'display:block';
-      document.querySelector('.js-sort-modal').style = 'display:none';
-      document.querySelector('.js-filter-modal').style = 'display:block';
+    qs(this.FILTER_BTN).addEventListener('click', () => {
+      self.setFilterDefaults(store.state.filterMin, store.state.filterMax);
+
+      let modalContainer = qs(this.FILTER_MODAL_CONTAINER);
+      if (!modalContainer.classList.contains(this.HELPER_MODAL)) {
+        modalContainer.classList.add(this.HELPER_MODAL);
+      }
+      modalContainer.style = 'display:block';
     });
   }
 }

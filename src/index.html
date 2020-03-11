@@ -11,11 +11,16 @@
 
 <body>
     <main class="app-container">
+        <!--header-->
         <header class="header js-header-component">
 
         </header>
+        <!--app-container-->
         <div class="app-content">
+            <!--product-page-->
             <div class="js-product-page">
+
+                <!--products-sort-filter-control-->
                 <section class="products-control">
                     <div class="products-control__sort js-sort-component">
 
@@ -24,58 +29,111 @@
 
                     </div>
                 </section>
-                <section class="product-section js-product-list-component">
 
-                </section>
-            </div>
+                <!--products-list-view-->
+                <div class="products-list">
 
-            <div class="cart-page js-checkout-page">
+                    <!--products-filter-->
+                    <aside class="products-list__filter">
+                        <div id="filter-modal" class="filter-modal .js-filter-modal">
 
-            </div>
-            <section class="modal-container js-modal-container">
-                <div id="app-modal" class="modal">
-
-                    <div class="modal-content">
-                        <div class="filter-modal js-filter-modal">
-                            <h2>Filter Options</h2>
-                            <div id="slider-non-linear-step-value" class="filter-modal__step-value">
-                            </div>
-                            <div class="filter-modal__range">
-                                <div id="slider-non-linear-step" class="filter-modal__step">
+                            <div class="filter-modal__content">
+                                <div class="filter-modal__filterby">
+                                    <div class="filter-modal__title helper-display-block-sm">
+                                        <h2>Filter Options</h2>
+                                    </div>
+                                    <div class="filter-modal__title helper-display-inline-block-md">
+                                        <h2>Filters</h2>
+                                    </div>
+                                    <div id="slider-non-linear-step-value" class="filter-modal__step-value">
+                                    </div>
+                                    <div class="filter-modal__range">
+                                        <div id="slider-non-linear-step" class="filter-modal__step">
+                                        </div>
+                                        <p>Price</p>
+                                    </div>
                                 </div>
-                                <p>Price</p>
-                            </div>
-                        </div>
-                        <div class="sort-modal js-sort-modal">
-                            <h2>Sort Options</h2>
-                            <div class="sort-modal__sortby">
-                                <ul>
-                                    <li><input type="radio" name="sortby" value="priceHigh" checked></input><span>Price
-                                            -- High
-                                            Low</span>
-                                    </li>
-                                    <li><input type="radio" name="sortby" value="priceLow"></input><span>Price -- Low
-                                            High</span>
-                                    </li>
-                                    <li><input type="radio" name="sortby" value="discount"></input><span>Discount</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="modal-footer__action">
-                                <div class="modal-footer__cancel js-modal-cancel">
-                                    <button>Cancel</button>
+
+                                <div class="filter-modal__footer">
+                                    <div class="filter-modal__action">
+                                        <div class="filter-modal__cancel js-modal-cancel">
+                                            <button>Cancel</button>
+                                        </div>
+                                        <div class="filter-modal__apply js-modal-apply">
+                                            <button>Apply</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="modal-footer__apply js-modal-apply">
+                                <div class="filter-modal__apply--md js-modal-apply helper-display-block-md">
                                     <button>Apply</button>
                                 </div>
                             </div>
                         </div>
+
+                    </aside>
+
+                    <!--products-sort-->
+                    <div class="products-list__sort">
+                        <section id="sort-modal" class="sort-modal .js-sort-modal">
+                            <div class="sort-modal__content">
+
+                                <div class="sort-modal__title helper-display-block-sm">
+                                    <h2>Sort Options</h2>
+                                </div>
+
+                                <div class="sort-modal__title helper-display-inline-block-md">
+                                    <h2>Sort by</h2>
+                                </div>
+                                <div class="sort-modal__sortby">
+                                    <ul>
+                                        <li><input id="priceHigh" type="radio" name="sortby" value="priceHigh"
+                                                checked></input>
+                                            <span> <label class="active" name="priceHigh" for="priceHigh"> Price
+                                                    -- High Low </label> </span>
+                                        </li>
+                                        <li><input id="priceLow" type="radio" name="sortby" value="priceLow"></input>
+                                            <span> <label for="priceLow" name="priceLow"> Price -- Low High
+                                                </label> </span>
+                                        </li>
+                                        <li><input id="discount" type="radio" name="sortby" value="discount"></input>
+                                            <span> <label name="discount" for="discount"> Discount </label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="sort-modal__footer">
+                                    <div class="sort-modal__action">
+                                        <div class="sort-modal__cancel js-modal-cancel">
+                                            <button>Cancel</button>
+                                        </div>
+                                        <div class="sort-modal__apply js-modal-apply">
+                                            <button>Apply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!--products--list-->
+                        <section class="products-list__section js-product-list-component">
+
+                        </section>
                     </div>
+
                 </div>
-            </section>
+
+
+
+            </div>
+
+            <!--cart-page-->
+            <div class="cart-page js-checkout-page">
+
+            </div>
         </div>
+
+        <!--footer-->
         <footer class="footer">
             <p>&copy;copyright</p>
         </footer>

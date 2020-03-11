@@ -1,104 +1,77 @@
+import { applySearch, applyFilter, applySort, getItemById } from '../helpers/operations.js';
+
 export default {
-  load(state, payload) {
-    payload.ui = [];
-    Object.assign(payload.ui, payload.items);
-    Object.assign(state, payload);
+  load(state, products) {
+    Object.assign(state.items, products.items);
+    Object.assign(state.products, applySort(products.items));
+    return state;
   },
 
-  sort(state, payload) {
-    state.sortby = payload;
-    state.ui = this.applySort(state);
-    state.ui = this.applyFilter(state);
+  search(state, searchText) {
+    state.searchText = searchText;
+    Object.assign(state.products, state.items);
+    state.products = Object.assign([], applySearch(state.products, searchText));
+    state.products = Object.assign([], applyFilter(state));
+    state.products = Object.assign([], applySort(state.products, state.sortby));
+    return state;
   },
 
-  filter(state, payload) {
-    Object.assign(state.ui, state.items);
-    Object.assign(state, payload);
-    state.ui = this.applyFilter(state);
-    state.ui = this.applySort(state);
+  filter(state, filterBy) {
+    Object.assign(state.products, state.items);
+    Object.assign(state, filterBy);
+    state.products = applySearch(state.products, state.searchText);
+    state.products = Object.assign([], applyFilter(state));
+    state.products = Object.assign(state.products, applySort(state.products, state.sortby));
+    return state;
   },
 
-  search(state, payload) {
-    Object.assign(state.ui, state.items);
-    state.searchText = payload;
-    let filtered = state.ui.filter(item => {
-      return item.name.toLowerCase().startsWith(payload.toLowerCase());
-    });
-    state.ui = Object.assign([], filtered);
+  sort(state, sortby) {
+    state.sortby = sortby;
+    Object.assign(state.products, applySort(state.products, sortby));
+    return state;
   },
 
-  addItem(state, payload) {
+  addItem(state, product) {
     let cartItems = state.cart;
-    let item = this.getItemById(cartItems, payload);
+    let item = getItemById(cartItems, product);
     if (item) {
       item.quantity = item.quantity + 1;
     } else {
-      item = this.getItemById(state.ui, payload);
+      item = getItemById(state.products, product);
       item.quantity = 1;
       cartItems.push(item);
     }
     state.cart = cartItems;
+    return state;
   },
 
-  removeItem(state, payload) {
+  removeItem(state, product) {
     let cartItems = state.cart;
-    let item = this.getItemById(cartItems, payload);
+    let item = getItemById(cartItems, product);
     if (item) {
       item.quantity = item.quantity - 1;
       if (item.quantity == 0) {
         cartItems.splice(
           cartItems.findIndex(list => {
-            return list.id === payload;
+            return list.id === product;
           }),
           1
         );
       }
     }
     state.cart = cartItems;
+    return state;
   },
 
-  removeItems(state, payload) {
+  removeItems(state, product) {
     let cartItems = state.cart;
     cartItems.splice(
       cartItems.findIndex(list => {
-        return list.id === payload;
+        return list.id === product;
       }),
       1
     );
     state.cart = cartItems;
-  },
-
-  applySort(state) {
-    return state.ui.sort((item1, item2) => {
-      if (state.sortby === 'priceHigh' && item1.price < item2.price) {
-        return 1;
-      } else if (state.sortby === 'priceLow' && item1.price > item2.price) {
-        return 1;
-      } else if (state.sortby === 'discount' && item1.discount < item2.discount) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-  },
-
-  applyFilter(state) {
-    return state.ui.filter(item => {
-      let price = item.price - (item.price * item.discount) / 100;
-      return price > state.filterMin && price < state.filterMax;
-    });
-  },
-
-  getItemById(list, id) {
-    return list.filter(item => {
-      return item.id == id;
-    })[0];
-  },
-
-  groupBy(list, props) {
-    return list.reduce((a, b) => {
-      (a[b[props]] = a[b[props]] || []).push(b);
-      return a;
-    }, {});
+    return state;
   }
 };
