@@ -16,7 +16,6 @@ window.onresize = function() {
       qs(CHECKOUT_VIEW).style = 'display:flex';
     }
   } else {
-    console.log();
     if (qs(SORT_MODAL_CONTAINER).getAttribute(IS_MODAL_OPEN) === 'false') {
       qs(SORT_MODAL_CONTAINER).style = 'display:none';
     }
