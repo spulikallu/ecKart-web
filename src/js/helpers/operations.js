@@ -24,14 +24,14 @@ export function applySort(list, sortby) {
   });
 }
 
-export function applyFilter(list) {
-  return list.products.filter(item => {
+export function applyFilter(list, filterMin, filterMax) {
+  return list.filter(item => {
     let price = item.price - (item.price * item.discount) / 100;
-    return price >= list.filterMin && price <= list.filterMax;
+    return price >= filterMin && price <= filterMax;
   });
 }
 
-export function getItemById(list, id) {
+export function getPropertyByKey(list, id) {
   return list.filter(item => {
     return item.id == id;
   })[0];
