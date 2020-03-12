@@ -1,77 +1,84 @@
-import { applySearch, applyFilter, applySort, getItemById } from '../helpers/operations.js';
+import { applySearch, applyFilter, applySort, getPropertyByKey } from '../helpers/operations.js';
+import { clone } from '../helpers/copy.js';
 
 export default {
   load(state, products) {
-    Object.assign(state.items, products.items);
-    Object.assign(state.products, applySort(products.items));
-    return state;
+    let stateNow = {};
+    stateNow.items = products.items;
+    stateNow.products = products.items;
+    return stateNow;
   },
 
   search(state, searchText) {
-    state.searchText = searchText;
-    Object.assign(state.products, state.items);
-    state.products = Object.assign([], applySearch(state.products, searchText));
-    state.products = Object.assign([], applyFilter(state));
-    state.products = Object.assign([], applySort(state.products, state.sortby));
-    return state;
+    let stateNow = {};
+    stateNow.searchText = searchText;
+    stateNow.products = clone(state.items);
+    stateNow.products = applySearch(stateNow.products, searchText);
+    stateNow.products = applyFilter(stateNow.products, state.filterMin, state.filterMax);
+    stateNow.products = applySort(stateNow.products, state.sortby);
+    return stateNow;
   },
 
   filter(state, filterBy) {
-    Object.assign(state.products, state.items);
-    Object.assign(state, filterBy);
-    state.products = applySearch(state.products, state.searchText);
-    state.products = Object.assign([], applyFilter(state));
-    state.products = Object.assign(state.products, applySort(state.products, state.sortby));
-    return state;
+    let stateNow = {};
+    stateNow.filterMin = filterBy.filterMin;
+    stateNow.filterMax = filterBy.filterMax;
+    stateNow.products = clone(state.items);
+    stateNow.products = applySearch(stateNow.products, state.searchText);
+    stateNow.products = applyFilter(stateNow.products, stateNow.filterMin, stateNow.filterMax);
+    stateNow.products = applySort(stateNow.products, state.sortby);
+    return stateNow;
   },
 
   sort(state, sortby) {
-    state.sortby = sortby;
-    Object.assign(state.products, applySort(state.products, sortby));
-    return state;
+    let stateNow = {};
+    stateNow.sortby = sortby;
+    stateNow.products = clone(state.products);
+    stateNow.products = applySort(stateNow.products, sortby);
+    return stateNow;
   },
 
-  addItem(state, product) {
-    let cartItems = state.cart;
-    let item = getItemById(cartItems, product);
-    if (item) {
-      item.quantity = item.quantity + 1;
+  addItem(state, productId) {
+    let stateNow = {};
+    stateNow.cart = clone(state.cart);
+    let product = getPropertyByKey(stateNow.cart, productId);
+    if (product) {
+      product.quantity = product.quantity + 1;
     } else {
-      item = getItemById(state.products, product);
-      item.quantity = 1;
-      cartItems.push(item);
+      product = getPropertyByKey(state.products, productId);
+      product.quantity = 1;
+      stateNow.cart.push(product);
     }
-    state.cart = cartItems;
-    return state;
+    return stateNow;
   },
 
-  removeItem(state, product) {
-    let cartItems = state.cart;
-    let item = getItemById(cartItems, product);
-    if (item) {
-      item.quantity = item.quantity - 1;
-      if (item.quantity == 0) {
-        cartItems.splice(
-          cartItems.findIndex(list => {
-            return list.id === product;
+  removeItem(state, productId) {
+    let stateNow = {};
+    stateNow.cart = clone(state.cart);
+    let product = getPropertyByKey(stateNow.cart, productId);
+    if (product) {
+      product.quantity = product.quantity - 1;
+      if (product.quantity == 0) {
+        stateNow.cart.splice(
+          stateNow.cart.findIndex(list => {
+            return list.id === productId;
           }),
           1
         );
       }
     }
-    state.cart = cartItems;
-    return state;
+    return stateNow;
   },
 
-  removeItems(state, product) {
-    let cartItems = state.cart;
-    cartItems.splice(
-      cartItems.findIndex(list => {
-        return list.id === product;
+  removeItems(state, productId) {
+    let stateNow = {};
+    stateNow.cart = clone(state.cart);
+    stateNow.cart.splice(
+      stateNow.cart.findIndex(list => {
+        return list.id === productId;
       }),
       1
     );
-    state.cart = cartItems;
-    return state;
+    return stateNow;
   }
 };

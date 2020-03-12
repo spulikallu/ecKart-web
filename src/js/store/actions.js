@@ -15,15 +15,15 @@ export default {
     context.commit('sort', sortby);
   },
 
-  addItem(context, product) {
-    context.commit('addItem', product);
+  addItem(context, productId) {
+    context.commit('addItem', productId);
   },
 
-  removeItem(context, product) {
-    context.commit('removeItem', product);
+  removeItem(context, productId) {
+    context.commit('removeItem', productId);
   },
 
-  removeItems(context, product) {
-    context.commit('removeItems', product);
+  removeItems(context, productId) {
+    context.commit('removeItems', productId);
   }
 };
